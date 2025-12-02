@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    darkMode: ["class"],
+    darkMode: "class",
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,8 +10,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: '#0A0A0A',
-                foreground: '#FAFAFA',
+                background: '#FFFFFF',
+                foreground: '#171717',
                 primary: {
                     900: '#0D2818',
                     800: '#1A4D2E',
@@ -40,9 +40,9 @@ export default {
                 error: '#EF4444',
             },
             fontFamily: {
-                display: ['Plus Jakarta Sans', 'sans-serif'],
-                body: ['DM Sans', 'system-ui', 'sans-serif'],
-                mono: ['JetBrains Mono', 'monospace'],
+                display: ['Inter', '-apple-system', 'sans-serif'],
+                body: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                mono: ['Monaco', 'Courier New', 'monospace'],
             },
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-in',

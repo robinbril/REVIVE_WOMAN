@@ -3,58 +3,95 @@
 import { Button } from '@/components/ui/button'
 import { Star, Shield, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Hero() {
     return (
-        <section className="relative bg-white py-20 sm:py-32">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-4xl mx-auto">
-                    {/* Question-Driven Headline (Hormozi Style) */}
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black mb-6 leading-tight">
-                        Wil je voller haar en stralende huid?
-                    </h1>
+        <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left Column - Copy */}
+                    <div className="space-y-6">
+                        {/* Proof Badge */}
+                        <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full">
+                            <Star className="w-4 h-4 text-green-600 fill-green-600" />
+                            <span className="text-sm font-semibold text-green-900">
+                                2.847 TEVREDEN KLANTEN
+                            </span>
+                        </div>
 
-                    {/* Supporting Subheadline */}
-                    <h2 className="text-2xl sm:text-3xl text-neutral-sub mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Leer van de formule die 88.9% groei haalt (vs 60% Minoxidil) – zonder bijwerkingen.
-                    </h2>
+                        {/* Headline - ULTRA BOLD Hormozi style */}
+                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight">
+                            Stop Je
+                            <br />
+                            Haarverlies
+                            <br />
+                            <span className="text-primary-600">In 90 Dagen</span>
+                        </h1>
 
-                    {/* Primary CTA - Purple Hormozi Button */}
-                    <div className="mb-8">
-                        <Link
-                            href="#prijzen"
-                            className="inline-block bg-[rgb(var(--accent-purple))] hover:bg-[rgb(var(--accent-purple-hover))] text-white text-xl sm:text-2xl px-8 py-4 font-semibold transition-colors"
-                        >
-                            BEGIN NU – €39/maand
-                        </Link>
+                        {/* Subheadline */}
+                        <p className="text-xl sm:text-2xl text-neutral-700 font-medium">
+                            Of je krijgt je geld terug. Geen vragen gesteld.
+                        </p>
+
+                        {/* Value bullets */}
+                        <div className="space-y-3 text-lg">
+                            <div className="flex items-start gap-3">
+                                <span className="text-green-600 font-bold text-2xl">✓</span>
+                                <span className="text-neutral-800"><strong>88.9% effectiviteit</strong> vs 60% bij Minoxidil</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <span className="text-green-600 font-bold text-2xl">✓</span>
+                                <span className="text-neutral-800"><strong>Geen bijwerkingen</strong> zoals bij medicijnen</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <span className="text-green-600 font-bold text-2xl">✓</span>
+                                <span className="text-neutral-800"><strong>Klinisch bewezen</strong> in 24-weken studie</span>
+                            </div>
+                        </div>
+
+                        {/* CTA */}
+                        <div className="space-y-4 pt-4">
+                            <Button asChild size="lg" className="w-full sm:w-auto text-lg px-12 py-6 h-auto bg-primary-600 hover:bg-primary-700">
+                                <Link href="#prijzen">
+                                    START NU — €39/MAAND →
+                                </Link>
+                            </Button>
+
+                            {/* Micro-copy */}
+                            <p className="text-sm text-neutral-500">
+                                ✓ Gratis verzending • 90 dagen garantie • Annuleer wanneer je wilt
+                            </p>
+                        </div>
+
+                        {/* Trust Badges */}
+                        <div className="flex flex-wrap gap-6 pt-6 border-t border-neutral-200">
+                            <div className="flex items-center gap-2 text-neutral-600">
+                                <TrendingUp className="w-5 h-5 text-primary-600" />
+                                <span className="text-sm font-medium">Klinisch Getest</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-neutral-600">
+                                <Shield className="w-5 h-5 text-primary-600" />
+                                <span className="text-sm font-medium">EU Gecertificeerd</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-neutral-600">
+                                <Star className="w-5 h-5 text-primary-600 fill-primary-600" />
+                                <span className="text-sm font-medium">4.8/5 (2.847 reviews)</span>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Trust Bullets */}
-                    <div className="flex flex-wrap justify-center gap-6 text-sm text-neutral-sub mb-12">
-                        <span className="flex items-center gap-1">
-                            ✓ 90 dagen geld-terug garantie
-                        </span>
-                        <span className="flex items-center gap-1">
-                            ✓ Gratis verzending
-                        </span>
-                        <span className="flex items-center gap-1">
-                            ✓ Annuleer wanneer je wilt
-                        </span>
-                    </div>
-
-                    {/* Stats Row (Hormozi Authority) */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto border-t border-neutral-border pt-8">
-                        <div>
-                            <div className="text-4xl font-bold text-[rgb(var(--accent-purple))]">+24%</div>
-                            <div className="text-sm text-neutral-sub mt-1">Haardichtheid in 12 weken</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-bold text-[rgb(var(--accent-purple))]">88.9%</div>
-                            <div className="text-sm text-neutral-sub mt-1">Effectiviteit vs Minoxidil</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-bold text-[rgb(var(--accent-purple))]">2,847</div>
-                            <div className="text-sm text-neutral-sub mt-1">Tevreden klanten</div>
+                    {/* Right Column - Product Image */}
+                    <div className="relative flex items-center justify-center">
+                        <div className="relative w-full max-w-md">
+                            <Image
+                                src="/images/product-hero.png"
+                                alt="FOLLICLE Hair Growth Serum"
+                                width={500}
+                                height={600}
+                                className="w-full h-auto drop-shadow-2xl"
+                                priority
+                            />
                         </div>
                     </div>
                 </div>
