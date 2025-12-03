@@ -9,12 +9,11 @@ export default function Header() {
     const [timeLeft, setTimeLeft] = useState("")
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 10)
+        const handleScroll = () => setScrolled(window.scrollY > 20)
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Countdown timer
     useEffect(() => {
         const savedEnd = localStorage.getItem('countdown-end')
         let endTime: number
@@ -53,86 +52,72 @@ export default function Header() {
     }
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
-            {/* Urgency bar – emerald groen */}
-            <div className="bg-emerald-600 text-white py-2.5 text-center text-sm font-medium">
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg shadow-md' : ''}`}>
+            {/* Urgency bar – altijd boven */}
+            <div className="bg-emerald-600 text-white py-3 text-center text-sm font-medium">
                 <Timer className="inline w-4 h-4 mr-2 animate-pulse" />
-                Speciale introductieprijs eindigt over: <span className="font-bold">{timeLeft}</span>
-                {' → '}
-                <span className="underline decoration-white/70 font-bold">2.847 mannen gingen je voor</span>
+                Speciale introductieprijs eindigt over: <span className="font-bold">{timeLeft}</span> → 2.847 mannen gingen je voor vandaag
             </div>
 
-            {/* Main nav – wit */}
-            <div className={`transition-all duration-300 ${scrolled ? 'bg-white' : 'bg-white/95 backdrop-blur'}`}>
-                <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-                    {/* Logo – vet zwart */}
-                    <h1 className="text-2xl sm:text-3xl font-black tracking-tighter text-gray-900">
+            {/* Main nav */}
+            <div className="px-6 py-5">
+                <div className="max-w-7xl mx-auto flex items-center justify-between">
+                    {/* Logo – altijd zichtbaar, kleur switch bij scroll */}
+                    <h1 className={`text-2xl sm:text-3xl font-black tracking-tighter transition-colors ${scrolled ? 'text-emerald-600' : 'text-white'}`}>
                         FOLLICLE
                     </h1>
 
-                    {/* Desktop menu – verbeterde buttons */}
-                    <nav className="hidden lg:flex items-center gap-2">
-                        <button
-                            onClick={() => scrollToSection('ingredienten')}
-                            className="text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 font-medium transition px-4 py-2 rounded-lg"
-                        >
-                            Ingrediënten
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('wetenschap')}
-                            className="text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 font-medium transition px-4 py-2 rounded-lg"
-                        >
-                            Wetenschap
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('reviews')}
-                            className="text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 font-medium transition px-4 py-2 rounded-lg"
-                        >
-                            Reviews
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('faq')}
-                            className="text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 font-medium transition px-4 py-2 rounded-lg"
-                        >
-                            FAQ
-                        </button>
+                    {/* Desktop menu */}
+                    <nav className="hidden lg:flex items-center gap-10">
+                        {['Ingrediënten', 'Wetenschap', 'Reviews', 'FAQ'].map((item) => (
+                            <button
+                                key={item}
+                                onClick={() => scrollToSection(item.toLowerCase())}
+                                className={`font-medium transition ${scrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-white'}`}
+                            >
+                                {item}
+                            </button>
+                        ))}
                     </nav>
 
-                    {/* CTA button – emerald groen */}
+                    {/* Bestel Nu button – WITTE button met emerald tekst (nooit groen-op-groen) */}
                     <button
                         onClick={() => scrollToSection('prijzen')}
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 cursor-pointer text-sm sm:text-base"
+                        className={`font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer ${scrolled
+                                ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                                : 'bg-white text-emerald-600 hover:bg-gray-50'
+                            }`}
                     >
-                        Bestel Nu
+                        Bestel Nu →
                     </button>
 
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setMobileMenu(!mobileMenu)}
-                        className="lg:hidden text-gray-700"
+                        className={`lg:hidden ${scrolled ? 'text-gray-700' : 'text-white'}`}
                     >
                         {mobileMenu ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile dropdown menu */}
+            {/* Mobile dropdown */}
             {mobileMenu && (
                 <div className="lg:hidden bg-white border-t shadow-lg">
                     <div className="px-6 py-6 space-y-4">
-                        <button onClick={() => scrollToSection('ingredienten')} className="block w-full text-left text-lg font-medium text-gray-800 hover:text-emerald-600 transition">
-                            Ingrediënten
-                        </button>
-                        <button onClick={() => scrollToSection('wetenschap')} className="block w-full text-left text-lg font-medium text-gray-800 hover:text-emerald-600 transition">
-                            Wetenschap
-                        </button>
-                        <button onClick={() => scrollToSection('reviews')} className="block w-full text-left text-lg font-medium text-gray-800 hover:text-emerald-600 transition">
-                            Reviews
-                        </button>
-                        <button onClick={() => scrollToSection('faq')} className="block w-full text-left text-lg font-medium text-gray-800 hover:text-emerald-600 transition">
-                            FAQ
-                        </button>
-                        <button onClick={() => scrollToSection('prijzen')} className="block bg-emerald-600 text-white text-center py-4 rounded-xl font-bold text-lg w-full">
+                        {['Ingrediënten', 'Wetenschap', 'Reviews', 'FAQ'].map(item => (
+                            <button
+                                key={item}
+                                onClick={() => scrollToSection(item.toLowerCase())}
+                                className="block w-full text-left text-lg font-medium text-gray-800 hover:text-emerald-600 transition"
+                            >
+                                {item}
+                            </button>
+                        ))}
+                        <button
+                            onClick={() => scrollToSection('prijzen')}
+                            className="block bg-emerald-600 text-white text-center py-4 rounded-xl font-bold text-lg w-full"
+                        >
                             Bestel Nu
                         </button>
                     </div>
