@@ -26,13 +26,13 @@ export default function ClinicalProof() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Label */}
                 <div className="text-center mb-6">
-                    <span className="inline-block text-sm font-mono text-primary-600 bg-primary-50 px-4 py-2 rounded-full border border-primary-200">
+                    <p className="inline-block text-sm font-mono text-primary-600 bg-primary-50 px-4 py-2 rounded-full border border-primary-200">
                         DE WETENSCHAP
-                    </span>
+                    </p>
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-center mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-center mb-4">
                     Bewezen effectiever
                     <br />
                     dan Minoxidil.

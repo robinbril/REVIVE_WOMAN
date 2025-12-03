@@ -14,6 +14,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-feature-settings: "rlig" 1, "calt" 1;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -26,6 +28,28 @@ h6 {
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.1;
+  font-synthesis: none;
+}
+
+/* ACCESSIBILITY: Focus states (FIX #4) */
+:focus-visible {
+  outline: 3px solid #52B788;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* CONTRAST: Better text contrast (FIX #6) */
+.text-muted,
+.text-neutral-500 {
+  color: #525252 !important;
+}
+
+.text-neutral-600 {
+  color: #404040 !important;
+}
+
+.text-neutral-700 {
+  color: #262626 !important;
 }
 
 /* Enhanced glassmorphism */
@@ -65,30 +89,50 @@ h6 {
   scroll-behavior: smooth;
 }
 
-/* Button hover effects */
+/* BUTTONS: CTA improvements (FIX #3 + #10) */
 button,
-.btn {
+.btn,
+.btn-primary {
+  min-height: 56px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 700;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 button:hover,
-.btn:hover {
-  transform: scale(1.02);
+.btn:hover,
+.btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(82, 183, 136, 0.4);
 }
 
 button:active,
-.btn:active {
-  transform: scale(0.98);
+.btn:active,
+.btn-primary:active {
+  transform: scale(0.96);
 }
 
-/* Card lift effect */
-.card-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* CARDS: Premium hover effects (FIX #7) */
+.card,
+.card-lift,
+.glass {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.card:hover,
 .card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* NAV: Sticky blur backdrop (FIX #9) */
+nav.scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* Animated underline */
@@ -189,4 +233,17 @@ button:active,
 .chart-bar {
   transform-origin: left;
   animation: grow-bar 1s ease-out forwards;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+    min-height: 56px;
+  }
 }
