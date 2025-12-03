@@ -14,7 +14,7 @@ const cardVariants = {
 
 export default function ProblemAgitation() {
     return (
-        <section className="py-24 bg-emerald-950 text-white relative overflow-hidden">
+        <section className="py-24 bg-[#022c22] text-white relative overflow-hidden">
             {/* Background Gradient Blob */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-emerald-900/30 rounded-full blur-3xl -z-10" />
 
@@ -39,10 +39,6 @@ export default function ProblemAgitation() {
                 {/* 3 Pain cards */}
                 <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-20">
                     <motion.div
-                        variants={cardVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
                         className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
                     >
                         <div className="w-12 h-12 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">
@@ -55,11 +51,6 @@ export default function ProblemAgitation() {
                     </motion.div>
 
                     <motion.div
-                        variants={cardVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
                         className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
                     >
                         <div className="w-12 h-12 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">
@@ -72,11 +63,6 @@ export default function ProblemAgitation() {
                     </motion.div>
 
                     <motion.div
-                        variants={cardVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
                         className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
                     >
                         <div className="w-12 h-12 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">

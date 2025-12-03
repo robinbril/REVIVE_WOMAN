@@ -24,9 +24,6 @@ export default function Hero() {
                         </motion.div>
 
                         <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
                             className="text-5xl sm:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-6 text-balance"
                         >
                             Stop haarverlies. <br />
@@ -34,9 +31,6 @@ export default function Hero() {
                         </motion.h1>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
                             className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg"
                         >
                             Wetenschappelijk onderbouwde behandeling met 18% actieve ingrediënten.
@@ -45,9 +39,6 @@ export default function Hero() {
 
                         {/* Clinical USPs */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
                             className="space-y-3 mb-10"
                         >
                             {[
@@ -66,9 +57,6 @@ export default function Hero() {
 
                         {/* CTA Buttons */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
                             className="flex flex-col sm:flex-row gap-4"
                         >
                             <Link href="#prijzen" className="btn-primary group">
@@ -107,9 +95,6 @@ export default function Hero() {
 
                     {/* RIGHT - Product Visual */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
                         className="relative lg:h-[600px] flex items-center justify-center bg-gray-50 rounded-3xl p-8 lg:p-0"
                     >
                         <div className="relative w-full max-w-md aspect-[4/5]">
