@@ -1,4 +1,3 @@
-import Navigation from '@/components/sections/navigation'
 import Hero from '@/components/sections/hero'
 import ProblemAgitation from '@/components/sections/problem-agitation'
 import Solution from '@/components/sections/solution'
@@ -13,15 +12,14 @@ import ExitIntentPopup from '@/components/conversion/exit-intent-popup'
 import SocialProofToast from '@/components/conversion/social-proof-toast'
 import StickyMobileCTA from '@/components/conversion/sticky-mobile-cta'
 import GDPRBanner from '@/components/gdpr-banner'
-import TopBar from '@/components/top-bar'
+import Header from '@/components/header'
 import FloatingCTA from '@/components/conversion/floating-cta'
 import TrustBar from '@/components/conversion/trust-bar'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      <TopBar />
-      <Navigation />
+      <Header />
       <Hero />
       <ProblemAgitation />
       <Solution />
