@@ -4,15 +4,8 @@ import { useState, useEffect } from 'react'
 import { Timer, Menu, X } from 'lucide-react'
 
 export default function Header() {
-    const [scrolled, setScrolled] = useState(false)
     const [mobileMenu, setMobileMenu] = useState(false)
     const [timeLeft, setTimeLeft] = useState("")
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20)
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
 
     useEffect(() => {
         const savedEnd = localStorage.getItem('countdown-end')
@@ -52,41 +45,41 @@ export default function Header() {
     }
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg shadow-md' : ''}`}>
-            {/* Urgency bar – altijd boven */}
-            <div className="bg-emerald-600 text-white py-3 text-center text-sm font-medium">
-                <Timer className="inline w-4 h-4 mr-2 animate-pulse" />
-                Speciale introductieprijs eindigt over: <span className="font-bold">{timeLeft}</span> → 2.847 mannen gingen je voor vandaag
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+            {/* Urgency bar - emerald */}
+            <div className="bg-[#059669] text-white py-2.5 text-center text-sm font-medium">
+                <div className="flex items-center justify-center gap-2">
+                    <Timer className="w-4 h-4 animate-pulse" />
+                    Speciale introductieprijs eindigt over: <span className="font-bold">{timeLeft}</span>
+                    <span className="hidden md:inline">• 2.847 mannen gingen je voor vandaag</span>
+                </div>
             </div>
 
-            {/* Main nav */}
-            <div className="px-6 py-5">
+            {/* Main nav - wit met grijze onderlijn */}
+            <div className="px-6 py-5 border-b border-[#e2e8f0]">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    {/* Logo – altijd zichtbaar, kleur switch bij scroll */}
-                    <h1 className={`text-2xl sm:text-3xl font-black tracking-tighter transition-colors ${scrolled ? 'text-emerald-600' : 'text-white'}`}>
+                    {/* Logo - altijd zwart */}
+                    <h1 className="text-2xl sm:text-3xl font-black tracking-tighter text-black">
                         FOLLICLE
                     </h1>
 
-                    {/* Desktop menu */}
+                    {/* Desktop menu - zwarte tekst, underline hover */}
                     <nav className="hidden lg:flex items-center gap-10">
                         {['Ingrediënten', 'Wetenschap', 'Reviews', 'FAQ'].map((item) => (
                             <button
                                 key={item}
                                 onClick={() => scrollToSection(item.toLowerCase())}
-                                className={`font-medium transition ${scrolled ? 'text-gray-700 hover:text-emerald-600' : 'text-white/90 hover:text-white'}`}
+                                className="text-black font-medium hover:text-[#059669] transition border-b-2 border-transparent hover:border-[#059669] pb-1"
                             >
                                 {item}
                             </button>
                         ))}
                     </nav>
 
-                    {/* Bestel Nu button – WITTE button met emerald tekst (nooit groen-op-groen) */}
+                    {/* Bestel Nu - wit met emerald tekst */}
                     <button
                         onClick={() => scrollToSection('prijzen')}
-                        className={`font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer ${scrolled
-                                ? 'bg-emerald-600 text-white hover:bg-emerald-700'
-                                : 'bg-white text-emerald-600 hover:bg-gray-50'
-                            }`}
+                        className="bg-white text-[#059669] font-bold px-8 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer border-2 border-[#059669]"
                     >
                         Bestel Nu →
                     </button>
@@ -94,7 +87,7 @@ export default function Header() {
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setMobileMenu(!mobileMenu)}
-                        className={`lg:hidden ${scrolled ? 'text-gray-700' : 'text-white'}`}
+                        className="lg:hidden text-black"
                     >
                         {mobileMenu ? <X size={28} /> : <Menu size={28} />}
                     </button>
@@ -103,20 +96,20 @@ export default function Header() {
 
             {/* Mobile dropdown */}
             {mobileMenu && (
-                <div className="lg:hidden bg-white border-t shadow-lg">
+                <div className="lg:hidden bg-white border-t border-[#e2e8f0] shadow-lg">
                     <div className="px-6 py-6 space-y-4">
                         {['Ingrediënten', 'Wetenschap', 'Reviews', 'FAQ'].map(item => (
                             <button
                                 key={item}
                                 onClick={() => scrollToSection(item.toLowerCase())}
-                                className="block w-full text-left text-lg font-medium text-gray-800 hover:text-emerald-600 transition"
+                                className="block w-full text-left text-lg font-medium text-black hover:text-[#059669] transition"
                             >
                                 {item}
                             </button>
                         ))}
                         <button
                             onClick={() => scrollToSection('prijzen')}
-                            className="block bg-emerald-600 text-white text-center py-4 rounded-xl font-bold text-lg w-full"
+                            className="block bg-[#059669] text-white text-center py-4 rounded-xl font-bold text-lg w-full"
                         >
                             Bestel Nu
                         </button>
