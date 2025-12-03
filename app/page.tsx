@@ -13,15 +13,15 @@ import ExitIntentPopup from '@/components/conversion/exit-intent-popup'
 import SocialProofToast from '@/components/conversion/social-proof-toast'
 import StickyMobileCTA from '@/components/conversion/sticky-mobile-cta'
 import GDPRBanner from '@/components/gdpr-banner'
-import CountdownTimer from '@/components/conversion/countdown-timer'
+import TopBar from '@/components/top-bar'
 import FloatingCTA from '@/components/conversion/floating-cta'
 import TrustBar from '@/components/conversion/trust-bar'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      <TopBar />
       <Navigation />
-      <CountdownTimer />
       <Hero />
       <ProblemAgitation />
       <Solution />
