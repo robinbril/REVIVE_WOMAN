@@ -1,119 +1,97 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { Timer, Menu, X } from 'lucide-react'
+import Link from 'next/link'
+import { Menu, X, ShoppingBag, Timer } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export default function Header() {
-    const [mobileMenu, setMobileMenu] = useState(false)
-    const [timeLeft, setTimeLeft] = useState("")
+    const [isScrolled, setIsScrolled] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [timeLeft, setTimeLeft] = useState('04:12:33')
 
     useEffect(() => {
-        const savedEnd = localStorage.getItem('countdown-end')
-        let endTime: number
-
-        if (savedEnd) {
-            endTime = parseInt(savedEnd)
-        } else {
-            endTime = Date.now() + (12 * 60 * 60 * 1000)
-            localStorage.setItem('countdown-end', endTime.toString())
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50)
         }
-
-        const update = () => {
-            const remaining = endTime - Date.now()
-
-            if (remaining <= 0) {
-                const newEndTime = Date.now() + (12 * 60 * 60 * 1000)
-                localStorage.setItem('countdown-end', newEndTime.toString())
-                return
-            }
-
-            const h = Math.floor(remaining / (60 * 60 * 1000)).toString().padStart(2, '0')
-            const m = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000)).toString().padStart(2, '0')
-            const s = Math.floor((remaining % (60 * 1000)) / 1000).toString().padStart(2, '0')
-            setTimeLeft(`${h}:${m}:${s}`)
-        }
-
-        update()
-        const interval = setInterval(update, 1000)
-        return () => clearInterval(interval)
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id)
-        element?.scrollIntoView({ behavior: 'smooth' })
-        setMobileMenu(false)
-    }
-
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F0F0F] border-b border-[#D4AF37]/20">
-            {/* Urgency bar - Bordeaux */}
-            <div className="bg-[#4A0E2A] text-white py-2.5 text-center text-sm font-medium tracking-wide">
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-transparent'}`}>
+            {/* Top Bar - Clinical Trust */}
+            <div className="bg-emerald-600 text-white py-2 text-center text-sm font-medium tracking-wide">
                 <div className="flex items-center justify-center gap-2">
-                    <Timer className="w-4 h-4 text-[#D4AF37]" />
-                    <span className="text-[#F8F5F0]">Exclusieve aanbieding eindigt over:</span>
-                    <span className="font-bold text-[#D4AF37] font-mono">{timeLeft}</span>
+                    <Timer className="w-4 h-4" />
+                    <span>Bestel voor 23:59 = Morgen in huis</span>
                 </div>
             </div>
 
-            {/* Main nav - Black */}
-            <div className="px-6 py-5">
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    {/* Logo - Gold Serif */}
-                    <h1 className="text-3xl font-serif tracking-widest text-[#D4AF37]">
-                        REVIVE
-                    </h1>
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex items-center justify-between h-20">
+                    {/* Logo */}
+                    <Link href="/" className="relative z-50">
+                        <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+                            FOLLICLE<span className="text-emerald-600">.</span>
+                        </h1>
+                    </Link>
 
-                    {/* Desktop menu - White with Gold hover */}
-                    <nav className="hidden lg:flex items-center gap-10">
-                        {['Ingrediënten', 'Wetenschap', 'Reviews', 'FAQ'].map((item) => (
-                            <button
+                    {/* Desktop Nav */}
+                    <nav className="hidden lg:flex items-center gap-8">
+                        {['Wetenschap', 'Resultaten', 'Reviews', 'FAQ'].map((item) => (
+                            <Link
                                 key={item}
-                                onClick={() => scrollToSection(item.toLowerCase())}
-                                className="text-[#F8F5F0] font-light tracking-wide hover:text-[#D4AF37] transition border-b border-transparent hover:border-[#D4AF37] pb-1"
+                                href={`#${item.toLowerCase()}`}
+                                className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors"
                             >
                                 {item}
-                            </button>
+                            </Link>
                         ))}
                     </nav>
 
-                    {/* CTA - Bordeaux/Gold */}
-                    <button
-                        onClick={() => scrollToSection('prijzen')}
-                        className="bg-[#4A0E2A] text-[#D4AF37] border border-[#D4AF37] px-8 py-3 rounded-sm uppercase tracking-widest text-xs font-bold hover:bg-[#D4AF37] hover:text-[#4A0E2A] transition-all duration-300"
-                    >
-                        Reserveer
-                    </button>
+                    {/* Desktop CTA */}
+                    <div className="hidden lg:flex items-center gap-4">
+                        <Button asChild variant="ghost" className="text-gray-900 hover:text-emerald-600 hover:bg-emerald-50">
+                            <Link href="/login">Inloggen</Link>
+                        </Button>
+                        <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6">
+                            <Link href="#prijzen">
+                                Start Nu
+                            </Link>
+                        </Button>
+                    </div>
 
-                    {/* Mobile menu button */}
+                    {/* Mobile Toggle */}
                     <button
-                        onClick={() => setMobileMenu(!mobileMenu)}
-                        className="lg:hidden text-[#D4AF37]"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="lg:hidden text-gray-900 z-50"
                     >
-                        {mobileMenu ? <X size={28} /> : <Menu size={28} />}
+                        {isMobileMenuOpen ? <X /> : <Menu />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile dropdown */}
-            {mobileMenu && (
-                <div className="lg:hidden bg-[#0F0F0F] border-t border-[#D4AF37]/20 shadow-2xl">
-                    <div className="px-6 py-8 space-y-6">
-                        {['Ingrediënten', 'Wetenschap', 'Reviews', 'FAQ'].map(item => (
-                            <button
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+                <div className="fixed inset-0 bg-white z-40 pt-32 px-6 lg:hidden">
+                    <nav className="flex flex-col gap-6">
+                        {['Wetenschap', 'Resultaten', 'Reviews', 'FAQ'].map((item) => (
+                            <Link
                                 key={item}
-                                onClick={() => scrollToSection(item.toLowerCase())}
-                                className="block w-full text-left text-lg font-light text-[#F8F5F0] hover:text-[#D4AF37] transition"
+                                href={`#${item.toLowerCase()}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="text-xl font-medium text-gray-900 border-b border-gray-100 pb-4"
                             >
                                 {item}
-                            </button>
+                            </Link>
                         ))}
-                        <button
-                            onClick={() => scrollToSection('prijzen')}
-                            className="block bg-[#4A0E2A] text-[#D4AF37] border border-[#D4AF37] text-center py-4 rounded-sm uppercase tracking-widest font-bold text-sm w-full hover:bg-[#D4AF37] hover:text-[#4A0E2A] transition"
-                        >
-                            Reserveer Nu
-                        </button>
-                    </div>
+                        <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-6 text-lg mt-4">
+                            <Link href="#prijzen" onClick={() => setIsMobileMenuOpen(false)}>
+                                Start Je Behandeling
+                            </Link>
+                        </Button>
+                    </nav>
                 </div>
             )}
         </header>

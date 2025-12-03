@@ -1,57 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* REVIVE LUXURY THEME */
-html {
-  background: #0F0F0F !important;
-  color: #F8F5F0 !important;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight text-gray-900;
+  }
 }
 
-body {
-  background-color: #0F0F0F;
-  color: #F8F5F0;
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
+@layer components {
+
+  /* Clinical Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-emerald-600 rounded-lg hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-emerald-700 transition-all duration-200 bg-emerald-50 rounded-lg hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600;
+  }
+
+  /* Clinical Card */
+  .card-clinical {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  /* Section Container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-  color: #D4AF37;
-  /* Gold headings */
-}
-
-/* Luxury Button */
-.btn-luxury {
-  background: #4A0E2A;
-  /* Bordeaux */
-  color: #D4AF37;
-  /* Gold text */
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 16px 32px;
-  transition: all 0.3s ease;
-  border: 1px solid #D4AF37;
-}
-
-.btn-luxury:hover {
-  background: #D4AF37;
-  color: #4A0E2A;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
 }

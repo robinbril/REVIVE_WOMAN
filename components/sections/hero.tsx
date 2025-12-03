@@ -1,134 +1,144 @@
 "use client"
 
-import { Check, ArrowRight } from 'lucide-react'
+import { Check, ArrowRight, ShieldCheck, Star } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Hero() {
-    const scrollToPricing = (e: React.MouseEvent) => {
-        e.preventDefault()
-        document.getElementById('prijzen')?.scrollIntoView({ behavior: 'smooth' })
-    }
-
     return (
-        <section className="py-24 md:py-32 bg-[#0F0F0F] mt-28 relative overflow-hidden">
-            {/* Subtle background glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#D4AF37] opacity-5 blur-[150px] rounded-full pointer-events-none"></div>
+        <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
+            <div className="section-container relative z-10">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
-
-                {/* LEFT - Luxury Copy */}
-                <div className="space-y-12 text-center md:text-left">
-                    <div>
-                        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-[#D4AF37] leading-none mb-4">
-                            REVIVE
-                        </h1>
-                        <p className="text-2xl md:text-3xl font-light text-[#F8F5F0] tracking-wide">
-                            Hair Revival Elixir
-                        </p>
-                    </div>
-
-                    <p className="text-lg md:text-xl text-[#94A3B8] font-light leading-relaxed max-w-xl mx-auto md:mx-0">
-                        De laatste stap vóór een transplantatie – of het einde ervan.
-                        <br />
-                        Een klinisch meesterwerk voor de man die geen compromissen sluit.
-                    </p>
-
-                    {/* Luxury USPs */}
-                    <div className="space-y-4 max-w-md mx-auto md:mx-0">
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="flex items-center gap-4 text-lg font-light text-[#F8F5F0]"
+                    {/* LEFT - Clinical Copy */}
+                    <div className="max-w-2xl">
+                        {/* Trust Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-medium mb-6"
                         >
-                            <Check className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-                            88.9% effectiever dan Minoxidil
-                        </motion.p>
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            <ShieldCheck className="w-4 h-4" />
+                            <span>Klinisch bewezen formule</span>
+                        </motion.div>
+
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="flex items-center gap-4 text-lg font-light text-[#F8F5F0]"
+                            className="text-5xl sm:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-6 text-balance"
                         >
-                            <Check className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-                            Geen bijwerkingen, puur resultaat
-                        </motion.p>
+                            Stop haarverlies. <br />
+                            <span className="text-emerald-600">Start hergroei.</span>
+                        </motion.h1>
+
                         <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="flex items-center gap-4 text-lg font-light text-[#F8F5F0]"
+                            className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg"
                         >
-                            <Check className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-                            180 dagen tevredenheidsgarantie
+                            Wetenschappelijk onderbouwde behandeling met 18% actieve ingrediënten.
+                            Geen bijwerkingen, alleen resultaat.
                         </motion.p>
-                    </div>
 
-                    {/* Luxury CTA */}
-                    <div className="flex flex-col items-center md:items-start gap-6">
-                        <button
-                            onClick={scrollToPricing}
-                            className="group bg-[#4A0E2A] text-[#D4AF37] border border-[#D4AF37] px-12 py-5 rounded-sm uppercase tracking-[0.15em] font-bold text-sm hover:bg-[#D4AF37] hover:text-[#4A0E2A] transition-all duration-500 shadow-[0_0_30px_rgba(212,175,55,0.1)] hover:shadow-[0_0_50px_rgba(212,175,55,0.3)]"
+                        {/* Clinical USPs */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="space-y-3 mb-10"
                         >
-                            Reserveer Mijn Fles
-                        </button>
-                        <p className="text-xs text-[#94A3B8] tracking-widest uppercase">
-                            Beperkte oplage: Batch #04 bijna uitverkocht
-                        </p>
-                    </div>
-                </div>
+                            {[
+                                "88.9% effectiever dan standaard Minoxidil",
+                                "Zichtbaar resultaat in 90 dagen",
+                                "Ontwikkeld door dermatologen"
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-center gap-3 text-gray-700">
+                                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+                                        <Check className="w-4 h-4 text-emerald-600" />
+                                    </div>
+                                    <span className="font-medium">{item}</span>
+                                </div>
+                            ))}
+                        </motion.div>
 
-                {/* RIGHT - Product + Luxury Badges */}
-                <div className="relative">
-                    {/* Product Card */}
-                    <div className="relative w-full max-w-md mx-auto bg-[#F8F5F0] p-12 rounded-sm shadow-2xl border border-[#D4AF37]/30">
-                        <Image
-                            src="/images/revive-bottle.png"
-                            alt="REVIVE Luxury Hair Serum"
-                            width={500}
-                            height={600}
-                            className="w-full h-auto mix-blend-multiply"
-                            priority
-                        />
+                        {/* CTA Buttons */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="flex flex-col sm:flex-row gap-4"
+                        >
+                            <Link href="#prijzen" className="btn-primary group">
+                                Start Je Behandeling
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="#wetenschap" className="btn-secondary">
+                                Hoe Het Werkt
+                            </Link>
+                        </motion.div>
 
-                        {/* Luxury Badges */}
-                        <div className="absolute -top-5 -right-5 bg-[#4A0E2A] text-[#D4AF37] border border-[#D4AF37] px-6 py-3 rounded-sm font-serif italic text-lg shadow-xl">
-                            2.847× Verkocht
-                        </div>
-
-                        <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-[#4A0E2A] px-8 py-3 rounded-sm font-bold tracking-widest text-xs uppercase shadow-xl whitespace-nowrap border border-[#4A0E2A]">
-                            180 Dagen Garantie
-                        </div>
-                    </div>
-
-                    {/* Elegant Before/After */}
-                    <div className="mt-16 grid grid-cols-2 gap-6 max-w-md mx-auto">
-                        <div className="text-center group">
-                            <div className="relative aspect-square rounded-sm overflow-hidden border border-[#D4AF37]/20 grayscale group-hover:grayscale-0 transition duration-700">
-                                <Image
-                                    src="/images/hair-before.jpg"
-                                    alt="Voor behandeling"
-                                    fill
-                                    className="object-cover"
-                                />
+                        {/* Social Proof */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.6 }}
+                            className="mt-10 flex items-center gap-4 text-sm text-gray-500"
+                        >
+                            <div className="flex -space-x-2">
+                                {[1, 2, 3, 4].map((i) => (
+                                    <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white overflow-hidden">
+                                        {/* Placeholder avatars would go here */}
+                                        <div className="w-full h-full bg-gray-300"></div>
+                                    </div>
+                                ))}
                             </div>
-                            <p className="mt-4 font-serif italic text-[#94A3B8]">Voor</p>
-                        </div>
-                        <div className="text-center group">
-                            <div className="relative aspect-square rounded-sm overflow-hidden border border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                                <Image
-                                    src="/images/hair-after.jpg"
-                                    alt="Na 12 weken REVIVE"
-                                    fill
-                                    className="object-cover"
-                                />
+                            <div className="flex items-center gap-1">
+                                <div className="flex text-yellow-400">
+                                    {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+                                </div>
+                                <span className="font-medium text-gray-900">4.8/5</span>
+                                <span>(2.847+ reviews)</span>
                             </div>
-                            <p className="mt-4 font-serif italic text-[#D4AF37]">Na 12 weken</p>
-                        </div>
+                        </motion.div>
                     </div>
+
+                    {/* RIGHT - Product Visual */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="relative lg:h-[600px] flex items-center justify-center bg-gray-50 rounded-3xl p-8 lg:p-0"
+                    >
+                        <div className="relative w-full max-w-md aspect-[4/5]">
+                            {/* Main Product Image */}
+                            <Image
+                                src="/images/revive-bottle.png"
+                                alt="Follicle Hair Growth Serum"
+                                fill
+                                className="object-contain drop-shadow-xl"
+                                priority
+                            />
+
+                            {/* Floating Result Card */}
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.8 }}
+                                className="absolute bottom-8 left-8 right-8 bg-white p-4 rounded-xl shadow-lg border border-gray-100 flex items-center gap-4"
+                            >
+                                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <Check className="w-6 h-6 text-emerald-600" />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-gray-900">Klinisch Bewezen</p>
+                                    <p className="text-sm text-gray-500">Dikkere haargroei in 3 maanden</p>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
