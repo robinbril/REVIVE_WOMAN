@@ -4,51 +4,53 @@ import { motion } from 'framer-motion'
 import { HeartCrack, RotateCcw, Zap } from 'lucide-react'
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: "easeOut" }
+        transition: { duration: 0.5, ease: "easeOut" }
     }
 }
 
 export default function ProblemAgitation() {
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-emerald-50">
+        <section className="py-24 bg-emerald-950 text-white relative overflow-hidden">
+            {/* Background Gradient Blob */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-emerald-900/30 rounded-full blur-3xl -z-10" />
+
             <div className="max-w-7xl mx-auto px-6">
                 {/* Section label */}
                 <div className="text-center mb-8">
-                    <span className="bg-emerald-100 text-emerald-700 px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider">
-                        HET PROBLEEM
+                    <span className="bg-white/10 text-emerald-100 px-4 py-1.5 rounded-full font-medium text-xs uppercase tracking-widest border border-white/10 backdrop-blur-sm">
+                        HET HUIDIGE LANDSCHAP
                     </span>
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-center text-5xl sm:text-6xl md:text-8xl font-black text-black leading-none tracking-tighter mb-6">
-                    Minoxidil werkt...
-                    <br />
-                    <span className="text-red-600">tot je libido, hart of portemonnee het opgeeft.</span>
+                <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">
+                    De "gouden standaard" <br />
+                    <span className="text-emerald-400">heeft een donkere kant.</span>
                 </h2>
 
-                <p className="text-center text-xl text-gray-600 mb-16 max-w-4xl mx-auto">
-                    Duizenden mannen gebruiken het dagelijks. Maar tegen welke prijs?
+                <p className="text-center text-lg text-emerald-100/80 mb-16 max-w-3xl mx-auto leading-relaxed">
+                    Minoxidil en Finasteride zijn effectief, maar komen vaak met een prijs die veel mannen liever niet betalen.
                 </p>
 
                 {/* 3 Pain cards */}
-                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
+                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-20">
                     <motion.div
                         variants={cardVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="bg-white rounded-3xl p-10 shadow-xl border border-red-100 text-center hover:shadow-2xl transition-shadow"
+                        className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
                     >
-                        <div className="w-20 h-20 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center">
-                            <HeartCrack className="w-12 h-12 text-red-600" />
+                        <div className="w-12 h-12 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">
+                            <HeartCrack className="w-6 h-6 text-rose-300" />
                         </div>
-                        <h3 className="text-2xl font-black text-red-600 mb-3">Libidoproblemen</h3>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            <strong className="text-red-600 text-2xl">2-4%</strong> van de gebruikers krijgt erectiestoornissen — <strong>soms permanent</strong>.
+                        <h3 className="text-xl font-bold text-white mb-3">Seksuele Bijwerkingen</h3>
+                        <p className="text-emerald-100/70 leading-relaxed text-sm">
+                            Een klein maar significant percentage gebruikers ervaart <span className="text-rose-300 font-medium">libidoverlies</span> en andere ongewenste effecten.
                         </p>
                     </motion.div>
 
@@ -58,14 +60,14 @@ export default function ProblemAgitation() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white rounded-3xl p-10 shadow-xl border border-red-100 text-center hover:shadow-2xl transition-shadow"
+                        className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
                     >
-                        <div className="w-20 h-20 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center">
-                            <RotateCcw className="w-12 h-12 text-red-600" />
+                        <div className="w-12 h-12 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">
+                            <RotateCcw className="w-6 h-6 text-rose-300" />
                         </div>
-                        <h3 className="text-2xl font-black text-red-600 mb-3">Levenslang afhankelijk</h3>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            Stop je? Dan verlies je <strong className="text-red-600">binnen 3 maanden</strong> alles weer.
+                        <h3 className="text-xl font-bold text-white mb-3">Levenslange Afhankelijkheid</h3>
+                        <p className="text-emerald-100/70 leading-relaxed text-sm">
+                            Stop je met de behandeling? Dan verlies je vaak <span className="text-rose-300 font-medium">binnen enkele maanden</span> al je geboekte resultaat.
                         </p>
                     </motion.div>
 
@@ -75,22 +77,23 @@ export default function ProblemAgitation() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="bg-white rounded-3xl p-10 shadow-xl border border-red-100 text-center hover:shadow-2xl transition-shadow"
+                        className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
                     >
-                        <div className="w-20 h-20 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center">
-                            <Zap className="w-12 h-12 text-red-600" />
+                        <div className="w-12 h-12 mb-6 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">
+                            <Zap className="w-6 h-6 text-rose-300" />
                         </div>
-                        <h3 className="text-2xl font-black text-red-600 mb-3">Hoofdpijn & hartkloppingen</h3>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            Duizenden mannen ervaren <strong className="text-red-600">elke dag</strong> ongewenste bijwerkingen.
+                        <h3 className="text-xl font-bold text-white mb-3">Fysiek Ongemak</h3>
+                        <p className="text-emerald-100/70 leading-relaxed text-sm">
+                            Van hoofdpijn tot huidirritatie. Veel mannen stoppen voortijdig vanwege <span className="text-rose-300 font-medium">dagelijkse ongemakken</span>.
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Transition line */}
                 <div className="text-center">
-                    <p className="text-4xl sm:text-5xl md:text-6xl font-black text-emerald-600 underline decoration-8 decoration-emerald-400">
-                        Wij dachten: dat móét anders.
+                    <p className="text-2xl sm:text-3xl font-medium text-white">
+                        Wij geloven dat je niet hoeft te kiezen tussen <br />
+                        <span className="text-emerald-400">je haar</span> en <span className="text-emerald-400">je gezondheid</span>.
                     </p>
                 </div>
             </div>
