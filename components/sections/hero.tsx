@@ -93,6 +93,14 @@ export default function Hero() {
                     {/* Right Column - Product Image */}
                     <div className="relative flex items-center justify-center">
                         <div className="relative w-full max-w-md">
+                            {/* Product Stickers */}
+                            <div className="absolute -top-4 -left-4 bg-amber-400 text-neutral-900 px-4 py-2 rounded-full font-black text-sm shadow-lg z-10 rotate-[-12deg]">
+                                ⭐ BESTSELLER
+                            </div>
+                            <div className="absolute top-12 -right-4 bg-primary-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg z-10 rotate-[8deg]">
+                                88.9% EFFECTIEF
+                            </div>
+
                             <Image
                                 src="/images/product-hero.png"
                                 alt="FOLLICLE Hair Growth Serum - 18% actieve ingrediënten voor bewezen haargroei"
