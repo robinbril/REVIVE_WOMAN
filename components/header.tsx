@@ -19,7 +19,7 @@ export default function Header() {
     }, [])
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-transparent'}`}>
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200' : 'bg-transparent'}`}>
             {/* Top Bar - Clinical Trust */}
             <div className="bg-emerald-600 text-white py-2 text-center text-sm font-medium tracking-wide">
                 <div className="flex items-center justify-center gap-2">
@@ -32,7 +32,7 @@ export default function Header() {
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <Link href="/" className="relative z-50">
-                        <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+                        <h1 className={`text-2xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
                             REVIVE<span className="text-emerald-600">.</span>
                         </h1>
                     </Link>
@@ -43,7 +43,7 @@ export default function Header() {
                             <Link
                                 key={item}
                                 href={`#${item.toLowerCase()}`}
-                                className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors"
+                                className={`text-sm font-medium transition-colors ${isScrolled ? 'text-gray-600 hover:text-emerald-600' : 'text-white hover:text-emerald-400'}`}
                             >
                                 {item}
                             </Link>
@@ -52,10 +52,10 @@ export default function Header() {
 
                     {/* Desktop CTA */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Button asChild variant="ghost" className="text-gray-900 hover:text-emerald-600 hover:bg-emerald-50">
+                        <Button asChild variant="ghost" className={`transition-colors ${isScrolled ? 'text-gray-900 hover:text-emerald-600 hover:bg-emerald-50' : 'text-white hover:text-emerald-400 hover:bg-white/10'}`}>
                             <Link href="/login">Inloggen</Link>
                         </Button>
-                        <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6">
+                        <Button asChild className={`font-semibold px-6 transition-all ${isScrolled ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-white text-emerald-900 hover:bg-gray-100 shadow-lg'}`}>
                             <Link href="#prijzen">
                                 Start Nu
                             </Link>
@@ -65,7 +65,7 @@ export default function Header() {
                     {/* Mobile Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="lg:hidden text-gray-900 z-50"
+                        className={`lg:hidden z-50 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
                     </button>
