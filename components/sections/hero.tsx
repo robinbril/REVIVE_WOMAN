@@ -100,7 +100,7 @@ export default function Hero() {
                         <div className="relative w-full max-w-md aspect-[4/5]">
                             {/* Main Product Image */}
                             <Image
-                                src="/images/revive-bottle.png"
+                                src="/images/revive-hero-bottle.jpg"
                                 alt="Follicle Hair Growth Serum"
                                 fill
                                 className="object-contain drop-shadow-xl"
