@@ -6,6 +6,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Hero() {
+    const scrollToPricing = (e: React.MouseEvent) => {
+        e.preventDefault()
+        document.getElementById('prijzen')?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -29,9 +34,11 @@ export default function Hero() {
                             <span className="text-primary-600">In 90 Dagen</span>
                         </h1>
 
-                        {/* Subheadline */}
+                        {/* Subheadline - URGENCY + LOSS AVERSION */}
                         <p className="text-xl sm:text-2xl text-neutral-700 font-medium">
-                            Of je krijgt je geld terug. Geen vragen gesteld.
+                            Elke dag dat je wacht, verlies je 100 follikels.
+                            <br />
+                            Start nu of betaal later €10.000 voor transplants.
                         </p>
 
                         {/* Value bullets */}
@@ -52,15 +59,17 @@ export default function Hero() {
 
                         {/* CTA */}
                         <div className="space-y-4 pt-4">
-                            <Button asChild size="lg" className="w-full sm:w-auto text-lg px-12 py-6 h-auto bg-primary-600 hover:bg-primary-700">
-                                <Link href="#prijzen">
-                                    START NU — €39/MAAND →
-                                </Link>
+                            <Button
+                                onClick={scrollToPricing}
+                                size="lg"
+                                className="w-full sm:w-auto text-lg px-12 py-6 h-auto bg-primary-600 hover:bg-primary-700 cursor-pointer"
+                            >
+                                RISICO-VRIJ PROBEREN — €39/MAAND →
                             </Button>
 
                             {/* Micro-copy */}
                             <p className="text-sm text-neutral-500">
-                                ✓ Gratis verzending • 90 dagen garantie • Annuleer wanneer je wilt
+                                ✓ Gratis verzending • 90 dagen geld-terug garantie • Annuleer wanneer je wilt
                             </p>
                         </div>
 
@@ -86,7 +95,7 @@ export default function Hero() {
                         <div className="relative w-full max-w-md">
                             <Image
                                 src="/images/product-hero.png"
-                                alt="FOLLICLE Hair Growth Serum"
+                                alt="FOLLICLE Hair Growth Serum - 18% actieve ingrediënten voor bewezen haargroei"
                                 width={500}
                                 height={600}
                                 className="w-full h-auto drop-shadow-2xl"
