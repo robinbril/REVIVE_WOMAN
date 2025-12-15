@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 export default function Hero() {
     return (
         <section className="relative min-h-[94svh] lg:min-h-0 lg:py-36 bg-[#FAF9F6] overflow-hidden flex items-center">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#C9A87C]/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#B87333]/3 via-transparent to-transparent pointer-events-none" />
 
             <div className="px-5 sm:px-10 max-w-6xl mx-auto relative z-10 w-full pt-20 lg:pt-0">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -25,7 +25,7 @@ export default function Hero() {
                             className="text-[32px] sm:text-[48px] lg:text-[58px] font-normal text-[#2E2A25] tracking-tight leading-[1.08] mb-5 sm:mb-6"
                         >
                             Huid die leeft.<br />
-                            <span className="text-[#C9A87C]">Zonder filter.</span>
+                            <span className="text-[#B87333]">Zonder filter.</span>
                         </motion.h1>
 
                         {/* SUBHEADLINE - clean, één idee */}
@@ -64,7 +64,7 @@ export default function Hero() {
                         >
                             <Button
                                 size="lg"
-                                className="w-full sm:w-auto h-[54px] sm:h-[58px] px-10 sm:px-12 text-[14px] sm:text-[15px] font-medium bg-[#1E3A5F] hover:bg-[#15304F] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
+                                className="w-full sm:w-auto h-[54px] sm:h-[58px] px-10 sm:px-12 text-[14px] sm:text-[15px] font-medium bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
                                 asChild
                             >
                                 <Link href="#prijzen">

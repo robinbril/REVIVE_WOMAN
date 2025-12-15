@@ -32,8 +32,8 @@ export default function Pricing() {
                         <button
                             onClick={() => setIsSubscription(false)}
                             className={`flex-1 max-w-[160px] p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 ${!isSubscription
-                                ? 'border-[#C9A87C] bg-[#C9A87C]/5 shadow-lg'
-                                : 'border-[#E8E4E0] hover:border-[#C9A87C]/40 bg-white'
+                                ? 'border-[#B87333] bg-[#B87333]/5 shadow-lg'
+                                : 'border-[#E8E4E0] hover:border-[#B87333]/40 bg-white'
                                 }`}
                         >
                             <div className="text-[12px] text-[#6B6560] mb-2">Eenmalig</div>
@@ -48,11 +48,11 @@ export default function Pricing() {
                         <button
                             onClick={() => setIsSubscription(true)}
                             className={`flex-1 max-w-[160px] p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 relative ${isSubscription
-                                ? 'border-[#C9A87C] bg-[#C9A87C]/5 shadow-lg'
-                                : 'border-[#E8E4E0] hover:border-[#C9A87C]/40 bg-white'
+                                ? 'border-[#B87333] bg-[#B87333]/5 shadow-lg'
+                                : 'border-[#E8E4E0] hover:border-[#B87333]/40 bg-white'
                                 }`}
                         >
-                            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#C9A87C] text-white px-3 py-0.5 rounded-full text-[9px] font-medium whitespace-nowrap">
+                            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#B87333] text-white px-3 py-0.5 rounded-full text-[9px] font-medium whitespace-nowrap">
                                 MEEST GEKOZEN
                             </div>
                             <div className="text-[12px] text-[#6B6560] mb-2">Elke 6 weken</div>
@@ -62,7 +62,7 @@ export default function Pricing() {
                             >
                                 €49
                             </div>
-                            <div className="text-[10px] text-[#C9A87C] font-medium mt-1">-17%</div>
+                            <div className="text-[10px] text-[#B87333] font-medium mt-1">-17%</div>
                         </button>
                     </div>
 
@@ -94,7 +94,7 @@ export default function Pricing() {
 
                     {/* CTA */}
                     <Button
-                        className="w-full h-14 text-[15px] font-medium bg-[#1E3A5F] hover:bg-[#15304F] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                        className="w-full h-14 text-[15px] font-medium bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                         asChild
                     >
                         <Link href="/checkout">
@@ -106,11 +106,11 @@ export default function Pricing() {
                     {/* Trust */}
                     <div className="flex flex-wrap items-center justify-center gap-5 mt-8 text-[12px] text-[#6B6560]">
                         <span className="flex items-center gap-1.5">
-                            <Truck className="w-4 h-4 text-[#C9A87C]" />
+                            <Truck className="w-4 h-4 text-[#B87333]" />
                             Morgen in huis
                         </span>
                         <span className="flex items-center gap-1.5">
-                            <ShieldCheck className="w-4 h-4 text-[#C9A87C]" />
+                            <ShieldCheck className="w-4 h-4 text-[#B87333]" />
                             60 dagen retour
                         </span>
                     </div>

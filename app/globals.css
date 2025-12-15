@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  /* Premium Color Palette - Feminine & Soft */
+  /* Premium Color Palette */
   --cream: #FAF9F6;
   --cream-warm: #F5F0E8;
-  --rose-gold: #C9A87C;
-  --rose-gold-deep: #B8956E;
+  --copper: #B87333;
+  --copper-light: #C9A87C;
   --royal-blue: #1E3A5F;
   --charcoal: #2E2A25;
   --charcoal-soft: #4A4540;
@@ -50,16 +50,17 @@ h3,
   color: var(--charcoal);
 }
 
-/* Premium Button Styles - Softer Rose Gold */
+/* Premium Button Styles */
 .btn-premium {
   @apply relative overflow-hidden transition-all duration-300;
   border-radius: 100px;
-  box-shadow: 0 4px 14px rgba(201, 168, 124, 0.25);
+  /* Pill shape */
+  box-shadow: 0 4px 14px rgba(184, 115, 51, 0.25);
 }
 
 .btn-premium:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(201, 168, 124, 0.35);
+  box-shadow: 0 8px 25px rgba(184, 115, 51, 0.35);
 }
 
 /* Elegant Link Underline Animation */
@@ -75,7 +76,7 @@ h3,
   left: 0;
   width: 0;
   height: 1px;
-  background-color: var(--rose-gold);
+  background-color: var(--copper);
   transition: width 0.3s ease;
 }
 
@@ -83,11 +84,22 @@ h3,
   width: 100%;
 }
 
-/* Card with premium shadow - more rounded */
+/* Card with premium shadow */
 .card-premium {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Drop Cap for editorial feel */
+.drop-cap::first-letter {
+  font-family: var(--font-heading);
+  float: left;
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding-right: 12px;
+  color: var(--copper);
+  font-weight: 400;
 }
 
 /* Royal Blue accents */
@@ -95,9 +107,9 @@ h3,
   color: var(--royal-blue);
 }
 
-/* Rose Gold foil effect on hover */
+/* Copper foil effect on hover */
 .copper-foil {
-  background: linear-gradient(135deg, #C9A87C 0%, #E0C9A8 50%, #C9A87C 100%);
+  background: linear-gradient(135deg, #B87333 0%, #D4A574 50%, #B87333 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

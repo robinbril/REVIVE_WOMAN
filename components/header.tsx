@@ -63,7 +63,7 @@ export default function Header() {
                                 {item}
                             </Link>
                         ))}
-                        <Button asChild className="w-full bg-[#1E3A5F] hover:bg-[#15304F] text-white font-medium py-5 mt-3 rounded-full">
+                        <Button asChild className="w-full bg-[#B87333] hover:bg-[#9A5F2A] text-white font-medium py-5 mt-3 rounded-full">
                             <Link href="#prijzen" onClick={() => setIsMobileMenuOpen(false)}>
                                 Bestel Nu
                             </Link>
@@ -103,7 +103,7 @@ export default function Header() {
 
                             {/* Right: CTA + Cart */}
                             <div className="flex items-center gap-4">
-                                <Button asChild className="font-medium px-6 py-5 text-[13px] bg-[#1E3A5F] hover:bg-[#15304F] text-white rounded-full">
+                                <Button asChild className="font-medium px-6 py-5 text-[13px] bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full">
                                     <Link href="#prijzen">
                                         Bestel
                                     </Link>
