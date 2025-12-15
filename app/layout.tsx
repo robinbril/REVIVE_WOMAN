@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SERO. | 5% GHK-Cu Koperpeptide Serum",
+  title: "REVIVE | 5% GHK-Cu Koperpeptide Serum",
   description: "Hooggeconcentreerd 5% koperpeptide-serum voor huidherstel en textuurvernieuwing. Klinisch onderbouwd, 99,986% zuiver.",
 };
 

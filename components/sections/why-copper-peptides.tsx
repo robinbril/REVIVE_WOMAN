@@ -7,7 +7,7 @@ const competitors = [
     { brand: 'The Ordinary', pct: 0.5 },
     { brand: 'NIOD', pct: 1 },
     { brand: "Paula's Choice", pct: 1.5 },
-    { brand: 'SERO.', pct: 5, highlight: true },
+    { brand: 'REVIVE', pct: 5, highlight: true },
 ]
 
 const stats = [
@@ -58,7 +58,7 @@ export default function WhyCopperPeptides() {
                         </h2>
                         <p className="text-[16px] text-[#4A4540] leading-[1.7]">
                             De meeste serums bevatten 0,1–1% — net genoeg om op het label te zetten.
-                            <strong className="text-[#2E2A25]"> SERO. bevat 5%</strong>: de klinische dosis die daadwerkelijk werkt.
+                            <strong className="text-[#2E2A25]"> REVIVE bevat 5%</strong>: de klinische dosis die daadwerkelijk werkt.
                         </p>
                     </div>
 

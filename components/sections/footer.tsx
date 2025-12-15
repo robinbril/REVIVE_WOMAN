@@ -11,7 +11,7 @@ export default function Footer() {
                         style={{ fontFamily: 'var(--font-fraunces)' }}
                         className="text-[22px] font-normal tracking-wide"
                     >
-                        SERO.
+                        REVIVE.
                     </span>
                     <nav className="flex flex-wrap items-center justify-center gap-6 text-[13px] text-[#9A958D]">
                         <Link href="#formule" className="hover:text-white transition-colors">Wetenschap</Link>
@@ -21,7 +21,7 @@ export default function Footer() {
                     </nav>
                 </div>
                 <p className="text-center text-[11px] text-[#6B6560]">
-                    © 2025 SERO. Skin. Resultaten kunnen variëren.
+                    © 2025 REVIVE Skin. Resultaten kunnen variëren.
                 </p>
             </div>
         </footer>

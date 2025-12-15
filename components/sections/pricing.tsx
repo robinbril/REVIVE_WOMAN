@@ -22,7 +22,7 @@ export default function Pricing() {
                         style={{ fontFamily: 'var(--font-heading)' }}
                         className="text-[28px] sm:text-[34px] font-normal text-[#2E2A25] mb-2"
                     >
-                        SERO. Signal Serum
+                        REVIVE Signal Serum
                     </h2>
                     <p className="text-[14px] text-[#9A958D] mb-8">
                         5% GHK-Cu · 30ml
@@ -31,8 +31,8 @@ export default function Pricing() {
                     {/* Product Image */}
                     <div className="mb-8">
                         <Image
-                            src="/images/sero-bottle.png"
-                            alt="SERO. Serum"
+                            src="/images/revive-bottle.png"
+                            alt="REVIVE Serum"
                             width={200}
                             height={200}
                             className="h-36 sm:h-44 w-auto mx-auto"
@@ -80,7 +80,7 @@ export default function Pricing() {
                                 <>
                                     <div className="flex items-center gap-2.5 text-[13px] text-[#4A4540]">
                                         <Check className="w-4 h-4 text-[#A8B5A0]" />
-                                        SERO. Micro-Roller (0.25mm) voor optimale absorptie
+                                        REVIVE Micro-Roller (0.25mm) voor optimale absorptie
                                     </div>
                                     <div className="flex items-center gap-2.5 text-[13px] text-[#4A4540]">
                                         <Check className="w-4 h-4 text-[#A8B5A0]" />
