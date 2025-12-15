@@ -53,10 +53,10 @@ export default function Pricing() {
                         style={{ fontFamily: 'var(--font-heading)' }}
                         className="text-[24px] sm:text-[28px] font-normal text-[#2E2A25] mb-2 text-center"
                     >
-                        Start je 5% Herstelkuur
+                        Start je REVIVE routine
                     </h2>
                     <p className="text-[13px] text-[#9A958D] mb-10 text-center">
-                        Kies je kuurlengte
+                        Kies je formaat
                     </p>
 
                     {/* Bundle selector */}

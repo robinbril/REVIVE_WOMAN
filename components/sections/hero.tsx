@@ -25,7 +25,7 @@ export default function Hero() {
                             className="text-[36px] sm:text-[52px] lg:text-[64px] font-normal text-[#2E2A25] tracking-tight leading-[1.05] mb-5 sm:mb-6"
                         >
                             Kracht Uit Wetenschap.<br />
-                            <span className="text-[#B87333]">Glow Uit Jou.</span>
+                            <span className="text-[#B87333]">Glow Die Blijft.</span>
                         </motion.h1>
 
                         {/* SUBHEADLINE - groter en duidelijker */}
