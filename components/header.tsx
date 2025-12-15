@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ShoppingBag, Star } from 'lucide-react'
+import { Menu, X, ShoppingBag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Header() {
@@ -21,59 +21,51 @@ export default function Header() {
         <>
             {/* --- MOBILE HEADER --- */}
             <div className="lg:hidden fixed top-0 left-0 right-0 z-50">
-                {/* Compact Top Bar - rating + shipping in one row */}
-                <div className="bg-[#1C1C1C] text-white h-7 flex items-center justify-center gap-3 text-[10px] font-medium">
-                    <div className="flex items-center gap-1">
-                        <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-2.5 h-2.5 fill-[#B87333] text-[#B87333]" />
-                            ))}
-                        </div>
-                        <span className="opacity-90">4,9</span>
-                    </div>
-                    <span className="opacity-50">·</span>
-                    <span className="opacity-80">Gratis verzending NL</span>
-                </div>
-
-                {/* Main Header - 56px */}
-                <div className="bg-white h-14 flex items-center justify-between px-4 shadow-sm">
+                {/* Main Header - slimmer 52px */}
+                <div className={`bg-white/95 backdrop-blur-sm h-[52px] flex items-center justify-between px-4 ${isScrolled ? 'shadow-sm' : ''}`}>
                     {/* Left: Menu */}
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="w-10 h-10 flex items-center justify-center -ml-2"
+                    >
                         {isMobileMenuOpen ? (
-                            <X className="w-5 h-5 text-gray-900" />
+                            <X className="w-5 h-5 text-[#2E2A25]" />
                         ) : (
-                            <Menu className="w-5 h-5 text-gray-900" />
+                            <Menu className="w-5 h-5 text-[#2E2A25]" />
                         )}
                     </button>
 
                     {/* Center: Logo */}
-                    <Link href="/" className="font-semibold text-xl tracking-wide text-gray-900" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <Link
+                        href="/"
+                        className="font-semibold text-lg tracking-wide text-[#2E2A25] absolute left-1/2 -translate-x-1/2"
+                        style={{ fontFamily: 'var(--font-heading)' }}
+                    >
                         REVIVE<span className="text-[#B87333]">.</span>
                     </Link>
 
                     {/* Right: Cart */}
-                    <button className="relative">
-                        <ShoppingBag className="w-5 h-5 text-gray-900" />
-                        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#B87333] rounded-full text-[7px] font-bold text-white flex items-center justify-center">1</span>
+                    <button className="relative w-10 h-10 flex items-center justify-center -mr-2">
+                        <ShoppingBag className="w-5 h-5 text-[#2E2A25]" />
                     </button>
                 </div>
 
                 {/* Mobile Menu Overlay */}
                 {isMobileMenuOpen && (
-                    <div className="bg-white border-t border-gray-100 shadow-2xl p-6 flex flex-col gap-4">
-                        {['Product', 'Routine', 'Wetenschap', 'Reviews', 'FAQ'].map((item) => (
+                    <div className="bg-white border-t border-[#E8E4E0] shadow-xl p-5 flex flex-col gap-1">
+                        {['Formule', 'Reviews', 'Prijzen'].map((item) => (
                             <Link
                                 key={item}
                                 href={`#${item.toLowerCase()}`}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-base font-medium text-gray-900 py-2 border-b border-gray-50"
+                                className="text-[15px] font-medium text-[#2E2A25] py-3 border-b border-[#F4F0EB]"
                             >
                                 {item}
                             </Link>
                         ))}
-                        <Button asChild className="w-full bg-[#B87333] hover:bg-[#9A5F2A] text-white font-bold py-5 mt-2">
+                        <Button asChild className="w-full bg-[#B87333] hover:bg-[#9A5F2A] text-white font-medium py-5 mt-3 rounded-full">
                             <Link href="#prijzen" onClick={() => setIsMobileMenuOpen(false)}>
-                                Start routine
+                                Bestel Nu
                             </Link>
                         </Button>
                     </div>
@@ -82,38 +74,27 @@ export default function Header() {
 
             {/* --- DESKTOP HEADER --- */}
             <header className="hidden lg:block fixed top-0 left-0 right-0 z-50">
-                {/* Top Bar */}
-                <div className="bg-[#1C1C1C] text-white py-2 text-center text-sm font-medium">
-                    <div className="flex items-center justify-center gap-2">
-                        <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-3.5 h-3.5 fill-[#B87333] text-[#B87333]" />
-                            ))}
-                        </div>
-                        <span className="opacity-90">4,9 gebaseerd op 324 beoordelingen</span>
-                        <span className="opacity-50 mx-2">·</span>
-                        <span className="opacity-80">Gratis verzending NL · 60 dagen retour</span>
-                    </div>
-                </div>
-
                 {/* Main Header */}
-                <div className={`bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
-                    <div className="max-w-7xl mx-auto px-6">
+                <div className={`bg-white/95 backdrop-blur-sm transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
+                    <div className="max-w-6xl mx-auto px-8">
                         <div className="flex items-center justify-between h-16">
                             {/* Logo */}
                             <Link href="/" className="relative z-50">
-                                <span className="text-2xl font-semibold tracking-wide text-gray-900" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                                <span
+                                    className="text-xl font-semibold tracking-wide text-[#2E2A25]"
+                                    style={{ fontFamily: 'var(--font-heading)' }}
+                                >
                                     REVIVE<span className="text-[#B87333]">.</span>
                                 </span>
                             </Link>
 
                             {/* Desktop Nav */}
                             <nav className="flex items-center gap-8">
-                                {['Product', 'Routine', 'Wetenschap', 'Reviews', 'FAQ'].map((item) => (
+                                {['Formule', 'Reviews', 'Prijzen'].map((item) => (
                                     <Link
                                         key={item}
                                         href={`#${item.toLowerCase()}`}
-                                        className="text-sm font-medium text-gray-600 hover:text-[#B87333] transition-colors"
+                                        className="text-[13px] font-medium text-[#4A4540] hover:text-[#B87333] transition-colors"
                                     >
                                         {item}
                                     </Link>
@@ -122,13 +103,13 @@ export default function Header() {
 
                             {/* Right: CTA + Cart */}
                             <div className="flex items-center gap-4">
-                                <Button asChild className="font-bold px-6 py-5 text-sm bg-[#B87333] hover:bg-[#9A5F2A] text-white">
+                                <Button asChild className="font-medium px-6 py-5 text-[13px] bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full">
                                     <Link href="#prijzen">
                                         Bestel
                                     </Link>
                                 </Button>
                                 <button className="relative">
-                                    <ShoppingBag className="w-5 h-5 text-gray-900" />
+                                    <ShoppingBag className="w-5 h-5 text-[#2E2A25]" />
                                 </button>
                             </div>
                         </div>
