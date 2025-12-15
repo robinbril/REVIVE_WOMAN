@@ -53,7 +53,7 @@ export default function Reviews() {
     }
 
     return (
-        <section id="reviews" className="py-12 sm:py-20 bg-white overflow-hidden">
+        <section id="reviews" className="py-16 sm:py-24 bg-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 sm:px-8">
 
                 {/* Header */}
