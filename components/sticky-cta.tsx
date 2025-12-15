@@ -12,7 +12,7 @@ export default function StickyCTA() {
                 asChild
             >
                 <Link href="#prijzen">
-                    Bestel Sero.
+                    Bestel Nu · €59
                     <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
             </Button>
