@@ -1,58 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Premium Color Palette */
+  --cream: #FAF9F6;
+  --cream-warm: #F5F0E8;
+  --copper: #B87333;
+  --copper-light: #C9A87C;
+  --royal-blue: #1E3A5F;
+  --charcoal: #2E2A25;
+  --charcoal-soft: #4A4540;
+  --sage: #A8B5A0;
+
+  /* Typography */
+  --font-heading: var(--font-cormorant), 'Cormorant Garamond', serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--charcoal);
+  position: relative;
+}
+
+/* Noise texture overlay for premium feel */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Editorial Headings */
+h1,
+h2,
+h3,
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+}
+
+/* Premium Button Styles */
+.btn-premium {
+  @apply relative overflow-hidden transition-all duration-300;
+  border-radius: 100px;
+  /* Pill shape */
+  box-shadow: 0 4px 14px rgba(184, 115, 51, 0.25);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(184, 115, 51, 0.35);
+}
+
+/* Elegant Link Underline Animation */
+.link-elegant {
+  position: relative;
+  display: inline-block;
+}
+
+.link-elegant::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--copper);
+  transition: width 0.3s ease;
+}
+
+.link-elegant:hover::after {
+  width: 100%;
+}
+
+/* Card with premium shadow */
+.card-premium {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Drop Cap for editorial feel */
+.drop-cap::first-letter {
+  font-family: var(--font-heading);
+  float: left;
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding-right: 12px;
+  color: var(--copper);
+  font-weight: 400;
+}
+
+/* Royal Blue accents */
+.accent-blue {
+  color: var(--royal-blue);
+}
+
+/* Copper foil effect on hover */
+.copper-foil {
+  background: linear-gradient(135deg, #B87333 0%, #D4A574 50%, #B87333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 @layer base {
-  html {
-    @apply scroll-smooth;
-  }
-
-  body {
-    @apply bg-white text-gray-900 font-sans antialiased;
-    font-family: 'Outfit', sans-serif;
-    overflow-wrap: anywhere;
-    hyphens: auto;
-  }
-
-  img {
-    @apply max-w-full h-auto;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold tracking-tight text-gray-900;
+  * {
+    border-color: #E8E4E0;
   }
 }
 
-@layer components {
+/* GPU acceleration for smooth animations */
+.animate-gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
 
-  /* Clinical Button */
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-emerald-600 rounded-lg hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 shadow-sm hover:shadow-md;
-  }
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-emerald-700 transition-all duration-200 bg-emerald-50 rounded-lg hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600;
-  }
-
-  /* Clinical Card */
-  .card-clinical {
-    @apply bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300;
-  }
-
-  /* Section Container */
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-/* Custom Utilities */
-.text-balance {
-  text-wrap: balance;
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

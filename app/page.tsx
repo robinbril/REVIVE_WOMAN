@@ -1,36 +1,25 @@
 import Hero from '@/components/sections/hero'
-import ProblemAgitation from '@/components/sections/problem-agitation'
+import WhyCopperPeptides from '@/components/sections/why-copper-peptides'
 import Ingredients from '@/components/sections/ingredients'
-import SocialProof from '@/components/sections/social-proof'
-import TargetAudience from '@/components/sections/target-audience'
-import HowItWorks from '@/components/sections/how-it-works'
-import Guarantee from '@/components/sections/guarantee'
+import Reviews from '@/components/sections/reviews'
 import Pricing from '@/components/sections/pricing'
+import Guarantee from '@/components/sections/guarantee'
 import Footer from '@/components/sections/footer'
-import ExitIntentPopup from '@/components/conversion/exit-intent-popup'
-import SocialProofToast from '@/components/conversion/social-proof-toast'
-import StickyMobileCTA from '@/components/conversion/sticky-mobile-cta'
-import GDPRBanner from '@/components/gdpr-banner'
 import Header from '@/components/header'
+import StickyCTA from '@/components/sticky-cta'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white pb-24 lg:pb-0">
       <Header />
       <Hero />
-      <ProblemAgitation />
+      <WhyCopperPeptides />
       <Ingredients />
-      <SocialProof />
-      <TargetAudience />
-      <HowItWorks />
-      <Guarantee />
+      <Reviews />
       <Pricing />
-
+      <Guarantee />
       <Footer />
-      <ExitIntentPopup />
-      <SocialProofToast />
-      <StickyMobileCTA />
-      <GDPRBanner />
+      <StickyCTA />
     </main>
   )
 }

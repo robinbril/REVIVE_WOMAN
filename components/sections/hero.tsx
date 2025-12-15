@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Check, Star } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -8,161 +8,132 @@ import { Button } from '@/components/ui/button'
 
 export default function Hero() {
     return (
-        <section className="relative pt-40 pb-12 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
-            {/* Subtle background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#D4A574]/5 via-transparent to-transparent pointer-events-none" />
+        <section className="relative pt-32 sm:pt-36 lg:pt-44 pb-8 lg:pb-20 bg-[#FAF9F6] overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#B87333]/3 via-transparent to-transparent pointer-events-none" />
 
-            {/* Nieuw op de markt badge - Top Right (sleek, higher position) */}
-            <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="absolute top-16 right-4 lg:top-20 lg:right-8 bg-[#D4A574] text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md z-20 backdrop-blur-sm"
-            >
-                Nieuw op de markt
-            </motion.div>
+            <div className="px-6 sm:px-10 max-w-6xl mx-auto relative z-10">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
-            <div className="section-container relative z-10">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+                    {/* LEFT - Copy */}
+                    <div className="max-w-[46ch] mx-auto lg:mx-0 flex flex-col items-center lg:items-start text-center lg:text-left">
 
-                    {/* LEFT - Emotional, Customer-Focused Copy */}
-                    <div className="max-w-2xl mx-auto lg:mx-0 flex flex-col items-center lg:items-start text-center lg:text-left">
-
-
-
-                        {/* HEADLINE - Clear problem + solution, forced line break */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-3xl sm:text-5xl lg:text-[3.5rem] font-bold text-gray-900 tracking-tight leading-[1.1] mb-5"
-                        >
-                            Stop haaruitval.<br className="block" />
-                            <span className="text-[#D4A574]">Start hergroei.</span>
-                        </motion.h1>
-
-                        {/* SUBHEADLINE - Specific numbers convert better */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.15 }}
-                            className="text-lg sm:text-xl text-gray-600 mb-6 max-w-lg leading-relaxed"
-                        >
-                            <span className="text-gray-900 font-semibold">20,5% actieve ingrediënten.</span>{' '}
-                            <span className="text-gray-900 font-semibold">24 studies.</span>{' '}
-                            <span className="text-gray-900 font-semibold whitespace-nowrap">0 bijwerkingen.</span>
-                        </motion.p>
-
-                        {/* PRIMARY CTA - Test + Guarantee framing */}
+                        {/* BADGES - elegant thin style */}
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="w-full sm:w-auto mb-6"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
                         >
-                            <Button
-                                size="lg"
-                                className="w-full sm:w-auto px-10 py-7 text-lg font-bold bg-[#C4956A] hover:bg-[#B38559] text-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 rounded-xl group"
-                                asChild
-                            >
-                                <Link href="#prijzen">
-                                    BESTEL NU
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </Button>
-                            {/* Guarantee in micro-copy */}
-                            <p className="text-sm text-gray-500 mt-3 font-medium flex items-center justify-center lg:justify-start gap-2">
-                                ✓ 180 dagen niet tevreden? Volledige terugbetaling.
-                            </p>
-
-                            {/* Social proof - avatar stack + rating */}
-                            <div className="flex items-center gap-4 flex-wrap justify-center lg:justify-start mt-6">
-                                <div className="flex -space-x-3">
-                                    {[
-                                        { initials: 'TJ', bg: 'bg-[#D4A574]/20', text: 'text-[#8B6914]' },
-                                        { initials: 'MV', bg: 'bg-gray-100', text: 'text-gray-600' },
-                                        { initials: 'RL', bg: 'bg-[#D4A574]/20', text: 'text-[#8B6914]' },
-                                        { initials: 'SK', bg: 'bg-gray-100', text: 'text-gray-600' },
-                                    ].map((avatar, i) => (
-                                        <div
-                                            key={i}
-                                            className={`w-9 h-9 rounded-full ${avatar.bg} border-2 border-white flex items-center justify-center shadow-sm`}
-                                        >
-                                            <span className={`text-xs font-semibold ${avatar.text}`}>
-                                                {avatar.initials}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
-                                    <div className="flex">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star key={i} className="w-3.5 h-3.5 fill-[#D4A574] text-[#D4A574]" />
-                                        ))}
-                                    </div>
-                                    <span className="text-sm font-bold text-gray-900">4.8</span>
-                                    <span className="text-xs text-gray-500">(847 reviews)</span>
-                                </div>
-                            </div>
+                            <span className="text-[#B87333] font-medium text-[11px] tracking-wide border border-[#B87333]/30 px-3 py-1 rounded-full">
+                                5% GHK-Cu
+                            </span>
+                            <span className="text-[#4A4540] text-[11px] tracking-wide">
+                                99,986% Zuiver
+                            </span>
+                            <span className="text-[#4A4540] text-[11px] tracking-wide">
+                                pH 5,5–6,0
+                            </span>
                         </motion.div>
 
-                        {/* Mobile Product Visual */}
+                        {/* HEADLINE */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            style={{ fontFamily: 'var(--font-heading)' }}
+                            className="text-[34px] sm:text-[44px] lg:text-[54px] font-normal text-[#2E2A25] tracking-tight leading-[1.05] mb-6"
+                        >
+                            Kracht Uit Wetenschap.<br />
+                            <span className="text-[#B87333]">Glow Uit Jou.</span>
+                        </motion.h1>
+
+                        {/* SUBHEADLINE - empowering, factual */}
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.05 }}
+                            className="text-[16px] text-[#4A4540] mb-8 leading-[1.7] max-w-[40ch]"
+                        >
+                            REVIVE levert <strong className="text-[#2E2A25]">10mg GHK-Cu</strong> – een peptide met extreem potentieel voor huidvernieuwing, hydratatie en stevigheid. Onderbouwd door studies en duizenden positieve ervaringen.
+                        </motion.p>
+
+                        {/* MOBILE PRODUCT */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.2 }}
-                            className="relative w-full max-w-[240px] mx-auto aspect-[4/5] mb-8 lg:hidden rounded-2xl overflow-hidden shadow-2xl"
+                            transition={{ delay: 0.08 }}
+                            className="lg:hidden relative w-full max-w-[200px] mx-auto mb-8"
                         >
                             <Image
-                                src="/images/revive-hero-bottle.jpg"
-                                alt="REVIVE Hair Growth Serum"
-                                fill
-                                className="object-cover"
+                                src="/images/revive-bottle.png"
+                                alt="REVIVE Serum"
+                                width={200}
+                                height={250}
+                                className="w-full h-auto"
                                 priority
                             />
                         </motion.div>
+
+                        {/* CTA - Pill shape premium */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="w-full sm:w-auto mb-4"
+                        >
+                            <Button
+                                size="lg"
+                                className="w-full sm:w-auto h-[54px] px-10 text-[14px] font-medium bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
+                                asChild
+                            >
+                                <Link href="#prijzen">
+                                    Bestel Revive Skin
+                                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </Button>
+                        </motion.div>
+
+                        {/* MICRO-COPY */}
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.12 }}
+                            className="text-[11px] text-[#9A958D] mb-6"
+                        >
+                            Ontwikkeld voor doelgerichte huidverbetering
+                        </motion.p>
+
+                        {/* TRUST BULLETS - minimal */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.14 }}
+                            className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[12px] text-[#4A4540]"
+                        >
+                            <span className="flex items-center gap-1.5">
+                                <Check className="w-3.5 h-3.5 text-[#1E3A5F]" />
+                                60 dagen opbouwen
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <Check className="w-3.5 h-3.5 text-[#1E3A5F]" />
+                                Gratis verzending NL
+                            </span>
+                        </motion.div>
                     </div>
 
-                    {/* RIGHT - Product Visual - Desktop Only */}
+                    {/* RIGHT - Desktop product */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{
-                            opacity: 1,
-                            x: 0
-                        }}
-                        transition={{
-                            delay: 0.3,
-                            duration: 0.6
-                        }}
-                        className="hidden lg:flex relative lg:h-[600px] items-center justify-center mt-10 lg:mt-0"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="hidden lg:flex justify-center items-center"
                     >
-                        <div className="relative w-full max-w-lg aspect-[4/5]">
-                            {/* Main Product Image */}
-                            <Image
-                                src="/images/revive-hero-bottle.jpg"
-                                alt="REVIVE Hair Growth Serum"
-                                fill
-                                className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-                                priority
-                            />
-
-                            {/* Floating Result Card - Positioned over image top */}
-                            <motion.div
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.7 }}
-                                className="absolute top-8 left-4 bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 max-w-[200px] z-10"
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-                                        <Check className="w-6 h-6 text-emerald-600" />
-                                    </div>
-                                    <p className="text-sm text-gray-700 font-medium">
-                                        Door 24 studies onderbouwd
-                                    </p>
-                                </div>
-                            </motion.div>
-                        </div>
+                        <Image
+                            src="/images/revive-bottle.png"
+                            alt="REVIVE Serum"
+                            width={450}
+                            height={560}
+                            className="w-full h-auto max-w-[380px]"
+                            priority
+                        />
                     </motion.div>
                 </div>
             </div>

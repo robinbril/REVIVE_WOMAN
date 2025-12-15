@@ -1,82 +1,221 @@
 "use client"
 
-import { Droplet, Hand, Moon } from 'lucide-react'
+import { Check, X, Lightbulb, Download } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const phases = [
+    {
+        period: 'Week 1-2',
+        label: 'Gewenning',
+        frequency: '2-3x per week',
+        days: [false, true, false, true, false, true, false],
+        tip: 'Start rustig. Irritatie? Pauzeer een dag.',
+        intensity: 1,
+    },
+    {
+        period: 'Week 3-4',
+        label: 'Opbouw',
+        frequency: '4-5x per week',
+        days: [true, true, false, true, true, false, true],
+        tip: 'Je huid went aan de concentratie.',
+        intensity: 2,
+    },
+    {
+        period: 'Week 5+',
+        label: 'Volledig',
+        frequency: 'Dagelijks',
+        days: [true, true, true, true, true, true, true],
+        tip: 'Optioneel: ook \'s ochtends.',
+        intensity: 3,
+    },
+]
+
+const dayLabels = ['M', 'D', 'W', 'D', 'V', 'Z', 'Z']
+
+const milestones = [
+    { week: 'Week 2', label: 'Kalmering', desc: 'Minder roodheid' },
+    { week: 'Maand 1', label: 'Textuur', desc: 'Gladder gevoel' },
+    { week: 'Maand 3', label: 'Stevigheid', desc: 'Voller aanzien' },
+    { week: 'Maand 6', label: 'Nieuwe basis', desc: 'Structureel verbeterd' },
+]
+
+const dontCombine = [
+    { name: 'Vitamine C', reason: 'Koper oxideert L-ascorbinezuur' },
+    { name: 'AHA/BHA zuren', reason: 'Lage pH breekt peptides af' },
+    { name: 'Retinol', reason: 'Gebruik op wisselende avonden' },
+]
+
+const doCombine = ['SPF (altijd overdag!)', 'Moisturizer', 'Niacinamide', 'Ceramides', 'Hyaluronzuur']
 
 export default function HowItWorks() {
-    const steps = [
-        {
-            icon: Droplet,
-            title: "DRUPPEL",
-            description: "6-8 druppels op hoofdhuid",
-        },
-        {
-            icon: Hand,
-            title: "MASSEER",
-            description: "2 minuten circulatie",
-        },
-        {
-            icon: Moon,
-            title: "SLAAP",
-            description: "Laat intrekken overnacht",
-        },
-    ]
-
     return (
-        <section className="py-10 sm:py-12 bg-white">
-            <div className="max-w-6xl mx-auto px-6">
-                {/* Headline */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
-                        Hoe Het Werkt
+        <section id="routine" className="py-20 sm:py-28 bg-[#FAF9F6]">
+            <div className="max-w-5xl mx-auto px-6 sm:px-8">
+
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-14"
+                >
+                    <h2
+                        style={{ fontFamily: 'var(--font-heading)' }}
+                        className="text-[28px] sm:text-[34px] font-normal text-[#2E2A25] mb-3"
+                    >
+                        Je 5% Kuur
                     </h2>
-                    <p className="text-lg text-gray-500 font-medium">
-                        Simpel. Effectief. Wetenschappelijk.
+                    <p className="text-[15px] text-[#4A4540] max-w-xl mx-auto">
+                        Een opbouwschema in 3 fasen. Je huid moet wennen aan deze actieve concentratie.
                     </p>
-                </div>
+                </motion.div>
 
-                {/* 3 Step Cards - Dark Luxury & Compact */}
-                <div className="grid md:grid-cols-3 gap-4 sm:gap-6 mb-12">
-                    {steps.map((step, index) => {
-                        const Icon = step.icon
-                        return (
-                            <div key={index} className="relative group overflow-hidden rounded-xl bg-[#0A0A0A] border border-white/10 hover:border-[#D4A574]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4A574]/10">
-                                {/* Subtle Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                                <div className="p-6 sm:p-8 relative z-10 flex flex-col items-center text-center h-full">
-                                    {/* Step Number - Watermark style */}
-                                    <div className="absolute top-2 right-4 text-5xl font-black text-white/5 group-hover:text-[#D4A574]/10 transition-colors duration-300 select-none">
-                                        0{index + 1}
-                                    </div>
-
-                                    {/* Icon */}
-                                    <div className="w-12 h-12 mb-4 bg-white/5 rounded-full backdrop-blur-sm border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#D4A574] group-hover:text-black transition-all duration-300">
-                                        <Icon className="w-6 h-6 text-[#D4A574] group-hover:text-black transition-colors duration-300" strokeWidth={1.5} />
-                                    </div>
-
-                                    {/* Content */}
-                                    <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">
-                                        {step.title}
-                                    </h3>
-                                    <p className="text-sm text-gray-400 font-medium leading-relaxed group-hover:text-gray-300 transition-colors">
-                                        {step.description}
-                                    </p>
-                                </div>
+                {/* Phase Cards with Mini Calendars */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="grid sm:grid-cols-3 gap-5 mb-16"
+                >
+                    {phases.map((phase, i) => (
+                        <div
+                            key={phase.period}
+                            className={`rounded-2xl border-2 p-5 sm:p-6 ${phase.intensity === 3
+                                    ? 'bg-[#B87333]/10 border-[#B87333]'
+                                    : phase.intensity === 2
+                                        ? 'bg-amber-50 border-amber-200'
+                                        : 'bg-white border-[#E8E4E0]'
+                                }`}
+                        >
+                            <div className="text-[12px] font-medium text-[#B87333] mb-1">
+                                {phase.period}
                             </div>
-                        )
-                    })}
-                </div>
+                            <div
+                                style={{ fontFamily: 'var(--font-heading)' }}
+                                className="text-[18px] font-normal text-[#2E2A25] mb-4"
+                            >
+                                {phase.label}
+                            </div>
 
-                {/* Footer Line - The "Green Pill" */}
-                <div className="text-center">
-                    <div className="inline-flex items-center gap-2.5 px-6 py-3 bg-emerald-50/80 backdrop-blur-sm border border-emerald-100 rounded-full text-emerald-800 text-sm font-bold shadow-sm hover:shadow-md transition-all duration-300 cursor-default">
-                        <div className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                            {/* Mini Calendar */}
+                            <div className="flex justify-between mb-4">
+                                {dayLabels.map((day, di) => (
+                                    <div key={di} className="text-center">
+                                        <div className="text-[10px] text-[#9A958D] mb-1">{day}</div>
+                                        <div className={`w-5 h-5 rounded-full ${phase.days[di]
+                                                ? 'bg-[#B87333]'
+                                                : 'bg-white border border-[#D4CFC8]'
+                                            }`} />
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="text-[13px] font-medium text-[#2E2A25] mb-2">
+                                {phase.frequency}
+                            </div>
+                            <div className="flex items-start gap-1.5 text-[12px] text-[#6B6560]">
+                                <Lightbulb className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#B87333]" />
+                                {phase.tip}
+                            </div>
                         </div>
-                        Droogt in 60 seconden · Geen vettig haar
+                    ))}
+                </motion.div>
+
+                {/* Timeline Progression */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-16"
+                >
+                    <h3 className="text-[16px] font-medium text-[#2E2A25] mb-6 text-center">
+                        Wat je merkt
+                    </h3>
+                    <div className="relative">
+                        {/* Line */}
+                        <div className="absolute top-4 left-0 right-0 h-0.5 bg-[#E8E4E0]" />
+                        <div className="absolute top-4 left-0 h-0.5 bg-[#B87333]" style={{ width: '100%' }} />
+
+                        {/* Milestones */}
+                        <div className="grid grid-cols-4 relative">
+                            {milestones.map((m, i) => (
+                                <div key={m.week} className="text-center">
+                                    <div className="w-3 h-3 bg-[#B87333] rounded-full mx-auto mb-3" />
+                                    <div className="text-[11px] text-[#9A958D] mb-1">{m.week}</div>
+                                    <div className="text-[13px] font-medium text-[#2E2A25]">{m.label}</div>
+                                    <div className="text-[11px] text-[#6B6560]">{m.desc}</div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </motion.div>
+
+                {/* Combination Rules */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="grid sm:grid-cols-2 gap-5 mb-10"
+                >
+                    {/* Don't combine */}
+                    <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+                        <div className="flex items-center gap-2 mb-5">
+                            <span className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                <X className="w-4 h-4 text-red-600" />
+                            </span>
+                            <h4 className="text-[15px] font-semibold text-red-800">
+                                Niet combineren
+                            </h4>
+                        </div>
+                        <div className="space-y-3">
+                            {dontCombine.map(item => (
+                                <div key={item.name} className="flex items-start gap-2">
+                                    <span className="text-red-400 mt-0.5">•</span>
+                                    <div>
+                                        <div className="text-[13px] font-medium text-red-800">{item.name}</div>
+                                        <div className="text-[11px] text-red-600">{item.reason}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Do combine */}
+                    <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
+                        <div className="flex items-center gap-2 mb-5">
+                            <span className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                <Check className="w-4 h-4 text-green-600" />
+                            </span>
+                            <h4 className="text-[15px] font-semibold text-green-800">
+                                Wel combineren
+                            </h4>
+                        </div>
+                        <div className="space-y-2">
+                            {doCombine.map(item => (
+                                <div key={item} className="flex items-center gap-2 text-[13px] text-green-700">
+                                    <span className="text-green-400">•</span>
+                                    {item}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Download CTA */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                >
+                    <a
+                        href="#"
+                        className="inline-flex items-center gap-2 text-[#B87333] font-medium text-[13px] hover:underline"
+                    >
+                        <Download className="w-4 h-4" />
+                        Download routinekaart (PDF)
+                    </a>
+                </motion.div>
             </div>
         </section>
     )

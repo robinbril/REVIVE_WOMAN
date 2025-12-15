@@ -1,347 +1,384 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
-import { Plus, Check, X, ExternalLink } from 'lucide-react'
+import { useState } from 'react'
+import { X, ExternalLink, ChevronDown, FlaskConical, Check } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const ingredients = [
     {
-        id: 'redensyl',
-        percentage: 3,
-        name: 'REDENSYL',
-        shortDesc: 'Activeert follikel stamcellen',
-        benefits: [
-            '85% zag verbetering na 84 dagen',
-            'Verdubbelt anageen/telogeen ratio',
-            'Geen bekende bijwerkingen'
-        ],
-        studies: [
-            { label: 'PubMed 2020', url: 'https://pubmed.ncbi.nlm.nih.gov/32473084/' },
-            { label: 'Karaca 2019', url: 'https://www.hilarispublisher.com/open-access/a-comparative-study-between-topical-5-minoxidil-and-topical-redensyl-capixyl-and-procapil-combination-in-men-with-androg.pdf' },
-            { label: 'Merja 2024', url: 'https://pubmed.ncbi.nlm.nih.gov/38050644/' },
-            { label: 'Kumar 2023', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10246929/' },
-            { label: 'Review 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12251978/' },
-        ],
-        isNew: false
-    },
-    {
-        id: 'capixyl',
-        percentage: 5,
-        name: 'CAPIXYL',
-        shortDesc: 'Remt DHT productie',
-        benefits: [
-            'Remt DHT productie tot 52%',
-            'Versterkt extracellulaire matrix',
-            'Verbetert haarverankering'
-        ],
-        studies: [
-            { label: 'PMC 2020', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7840088/' },
-            { label: 'Karaca 2019', url: 'https://www.hilarispublisher.com/open-access/a-comparative-study-between-topical-5-minoxidil-and-topical-redensyl-capixyl-and-procapil-combination-in-men-with-androg.pdf' },
-            { label: 'Review 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12251978/' },
-            { label: 'Cochrane', url: 'https://www.cochranelibrary.com/central/doi/10.1002/central/CN-02260138/full' },
-        ],
-        isNew: false
-    },
-    {
-        id: 'procapil',
-        percentage: 3,
-        name: 'PROCAPIL',
-        shortDesc: 'Verbetert bloedcirculatie',
-        benefits: [
-            'Verbetert microcirculatie',
-            'Versterkt haarwortel',
-            'Voorkomt follikel veroudering'
-        ],
-        studies: [
-            { label: 'ResearchGate', url: 'https://www.researchgate.net/publication/326229067' },
-            { label: 'Eslahi 2022', url: 'https://www.odermatol.com/odermatology/20224/1.Effectiveness-EslahiE.pdf' },
-            { label: 'Kumar 2023', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10246929/' },
-            { label: 'Review 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12251978/' },
-        ],
-        isNew: false
-    },
-    {
-        id: 'anagain',
-        percentage: 3,
-        name: 'ANAGAIN',
-        shortDesc: 'Verlengt groeifase',
-        benefits: [
-            'Stimuleert Noggin-signaalstof',
-            'Verlengt actieve groeifase',
-            'Start nieuwe haargroeicycli'
-        ],
-        studies: [
-            { label: 'PubMed 2020', url: 'https://pubmed.ncbi.nlm.nih.gov/31680356/' },
-            { label: 'PMC Full', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8246764/' },
-            { label: 'Wiley', url: 'https://onlinelibrary.wiley.com/doi/full/10.1002/ptr.6528' },
-            { label: 'Review 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12251978/' },
-        ],
-        isNew: false
-    },
-    {
-        id: 'baicapil',
-        percentage: 4,
-        name: 'BAICAPIL',
-        shortDesc: 'Beschermt tegen stress',
-        benefits: [
-            'Beschermt tegen vrije radicalen',
-            'Vertraagt follikel veroudering',
-            '90% minder haarverlies in studies'
-        ],
-        studies: [
-            { label: 'Shin 2015', url: 'https://pubmed.ncbi.nlm.nih.gov/25434532/' },
-            { label: 'Li 2018', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5810219/' },
-            { label: 'Kim 2014', url: 'https://pubmed.ncbi.nlm.nih.gov/24496985/' },
-            { label: 'Liu 2022', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9699788/' },
-            { label: 'Review 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12251978/' },
-        ],
-        isNew: false
-    },
-    {
         id: 'ghk-cu',
-        percentage: 2.5,
-        name: 'GHK-Cu',
-        shortDesc: 'Stimuleert collageen',
+        percentage: 5,
+        name: 'GHK-Cu Peptide',
+        fullName: 'Copper Tripeptide-1',
+        shortDesc: 'Activeert herstel en celvernieuwing',
+        hero: true,
         benefits: [
-            '33% snellere resultaten dan Minoxidil',
-            'Stimuleert collageen en elastine',
-            'Vergroot actieve follikels'
+            '+70% collageen productie na 12 weken',
+            'Stimuleert elastine en glycosaminoglycanen',
+            'Activeert 4.000+ huidherstel-genen',
         ],
         studies: [
-            { label: 'Pyo 2007', url: 'https://www.semanticscholar.org/paper/The-effect-of-tripeptide-copper-complex-on-human-in-Pyo-Yoo/a7dd6f25ff702c912ba95f7e27fe9cd52414d69d' },
-            { label: 'Lee 2016', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4969472/' },
             { label: 'Pickart 2018', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/' },
-            { label: 'Gelfuso 2023', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10643103/' },
-            { label: 'Pickart 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18644225/' },
+            { label: 'Lee 2016', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4969472/' },
+            { label: 'Pickart 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18047926/' },
+            { label: 'Badenhorst 2016', url: 'https://pubmed.ncbi.nlm.nih.gov/27185364/' },
+            { label: 'Hostynek 2011', url: 'https://pubmed.ncbi.nlm.nih.gov/21531335/' },
         ],
-        isNew: true
-    }
+        blueNote: true,
+    },
+    {
+        id: 'matrixyl',
+        percentage: 2,
+        name: 'Matrixyl 3000',
+        fullName: 'Palmitoyl Tripeptide-1 + Tetrapeptide-7',
+        shortDesc: 'Vermindert rimpeldiepte tot 39%',
+        benefits: [
+            'Synergie van twee peptide-systemen',
+            'Stimuleert collageen type I, III en IV',
+            'Remt inflammatoire cytokines',
+        ],
+        studies: [
+            { label: 'Sederma 2012', url: 'https://www.sederma.com/matrixyl-3000' },
+            { label: 'Robinson 2005', url: 'https://pubmed.ncbi.nlm.nih.gov/16029679/' },
+            { label: 'Gorouhi 2009', url: 'https://pubmed.ncbi.nlm.nih.gov/19715448/' },
+        ],
+    },
+    {
+        id: 'hyaluronic',
+        percentage: 2,
+        name: 'Multi-Weight HA',
+        fullName: '3 molecuulgroottes hyaluronzuur',
+        shortDesc: 'Hydrateert alle huidlagen',
+        benefits: [
+            'Low MW (5kDa): penetreert diep',
+            'Medium MW (50kDa): plumping effect',
+            'High MW (1000kDa): oppervlakte hydratatie',
+        ],
+        studies: [
+            { label: 'Pavicic 2011', url: 'https://pubmed.ncbi.nlm.nih.gov/22052267/' },
+            { label: 'Jegasothy 2014', url: 'https://pubmed.ncbi.nlm.nih.gov/24494694/' },
+            { label: 'Papakonstantinou 2012', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3583886/' },
+        ],
+    },
+    {
+        id: 'panthenol',
+        percentage: 2,
+        name: 'Panthenol',
+        fullName: 'Pro-Vitamine B5',
+        shortDesc: 'Kalmeert en herstelt de huidbarrière',
+        benefits: [
+            'Converteert naar pantothenische zuur in huid',
+            'Verbetert stratum corneum hydratatie',
+            'Versnelt epidermale wondheling',
+        ],
+        studies: [
+            { label: 'Proksch 2017', url: 'https://pubmed.ncbi.nlm.nih.gov/28654359/' },
+            { label: 'Ebner 2002', url: 'https://pubmed.ncbi.nlm.nih.gov/12113650/' },
+            { label: 'Gehring 2004', url: 'https://pubmed.ncbi.nlm.nih.gov/15056978/' },
+        ],
+    },
+    {
+        id: 'ectoine',
+        percentage: 1,
+        name: 'Ectoine',
+        fullName: 'Extremophile Shield',
+        shortDesc: 'Stabiliseert peptides, beschermt cellen',
+        benefits: [
+            'Vormt beschermende hydratatieschil',
+            'Beschermt tegen UV-geïnduceerde schade',
+            'Stabiliseert GHK-Cu moleculen',
+        ],
+        studies: [
+            { label: 'Graf 2008', url: 'https://pubmed.ncbi.nlm.nih.gov/18561452/' },
+            { label: 'Buenger 2004', url: 'https://pubmed.ncbi.nlm.nih.gov/15230007/' },
+            { label: 'Heinrich 2007', url: 'https://pubmed.ncbi.nlm.nih.gov/17440282/' },
+        ],
+    },
+    {
+        id: 'allantoin',
+        percentage: 0.5,
+        name: 'Allantoin',
+        fullName: 'Comfrey-derived Soothing Agent',
+        shortDesc: 'Instant kalmering, voorkomt irritatie',
+        benefits: [
+            'Stimuleert celproliferatie',
+            'Keratolytisch effect (zachte exfoliatie)',
+            'GRAS-status (Generally Recognized as Safe)',
+        ],
+        studies: [
+            { label: 'Araújo 2010', url: 'https://pubmed.ncbi.nlm.nih.gov/20637084/' },
+            { label: 'Becker 2010', url: 'https://pubmed.ncbi.nlm.nih.gov/20634516/' },
+        ],
+    },
 ]
 
 export default function Ingredients() {
-    const [expandedCard, setExpandedCard] = useState<string | null>(null)
-    const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
-    const sectionRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        ingredients.forEach((_, index) => {
-                            setTimeout(() => {
-                                setVisibleCards(prev => new Set([...prev, index]))
-                            }, index * 100)
-                        })
-                        observer.disconnect()
-                    }
-                })
-            },
-            { threshold: 0.1 }
-        )
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current)
-        }
-
-        return () => observer.disconnect()
-    }, [])
-
-    useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
-            if (expandedCard && !(e.target as Element).closest('.ingredient-card')) {
-                setExpandedCard(null)
-            }
-        }
-
-        document.addEventListener('click', handleClickOutside)
-        return () => document.removeEventListener('click', handleClickOutside)
-    }, [expandedCard])
-
-    useEffect(() => {
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') setExpandedCard(null)
-        }
-        document.addEventListener('keydown', handleEsc)
-        return () => document.removeEventListener('keydown', handleEsc)
-    }, [])
-
-    const toggleCard = (cardId: string, e: React.MouseEvent) => {
-        e.stopPropagation()
-        setExpandedCard(expandedCard === cardId ? null : cardId)
-    }
+    const [expandedId, setExpandedId] = useState<string | null>(null)
+    const totalActive = ingredients.reduce((sum, i) => sum + i.percentage, 0)
 
     return (
-        <section id="ingredienten" className="py-16 sm:py-20 bg-white" ref={sectionRef}>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <section id="formule" className="py-20 sm:py-28 bg-[#FAF9F6]">
+            <div className="max-w-5xl mx-auto px-6 sm:px-8">
+
                 {/* Header */}
-                <div className="text-center mb-3 sm:mb-4">
-                    <span className="text-[#C4956A] text-xs sm:text-sm font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                        DE OPLOSSING
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-10"
+                >
+                    <span className="inline-flex items-center gap-2 bg-white text-[#6B6560] text-[11px] font-medium px-4 py-2 rounded-full mb-4 shadow-sm">
+                        <FlaskConical className="w-3.5 h-3.5" />
+                        LAB-VERIFIED FORMULA
                     </span>
-                    <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mt-3 sm:mt-4 mb-1 sm:mb-2">
-                        6 gepatenteerde technologieën.
+                    <h2
+                        style={{ fontFamily: 'var(--font-heading)' }}
+                        className="text-[28px] sm:text-[34px] font-normal text-[#2E2A25] mb-3"
+                    >
+                        6 Actieve Systemen
                     </h2>
-                    <p className="text-lg sm:text-xl text-[#C4956A]">
-                        1 krachtige formule.
+                    <p className="text-[15px] text-[#4A4540] max-w-xl mx-auto">
+                        Elke druppel bevat {totalActive}% werkzame ingrediënten. Klik voor de wetenschap.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="text-center mb-8 sm:mb-12">
-                    <p className="text-gray-600 italic text-base sm:text-lg">
-                        "Mooi verhaal. Maar werkt het ook?"
-                    </p>
-                </div>
-
-                {expandedCard && (
-                    <div
-                        className="fixed inset-0 bg-black/10 backdrop-blur-[2px] z-10 transition-opacity duration-300"
-                        onClick={() => setExpandedCard(null)}
-                    />
-                )}
-
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 relative">
-                    {ingredients.map((ingredient, index) => {
-                        const isExpanded = expandedCard === ingredient.id
-
-                        return (
-                            <div
-                                key={ingredient.id}
-                                className={`
-                                    ingredient-card relative bg-white border rounded-xl sm:rounded-2xl p-3 sm:p-5 cursor-pointer
-                                    transition-all duration-300 ease-out
-                                    ${visibleCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                                    ${ingredient.id === 'ghk-cu' ? 'ghk-cu-gold-border' : ''}
-                                    ${isExpanded
-                                        ? 'z-20 bg-white shadow-2xl border-[#C4956A] scale-[1.02] sm:scale-105 col-span-2 lg:col-span-1'
-                                        : ingredient.id === 'ghk-cu' ? 'border-transparent' : 'border-gray-200 hover:border-[#C4956A]/50 hover:shadow-lg hover:-translate-y-1'
-                                    }
-                                `}
-                                style={{ transitionDelay: visibleCards.has(index) ? '0s' : `${index * 0.1}s` }}
-                                onClick={(e) => toggleCard(ingredient.id, e)}
-                            >
-                                {/* NIEUW badge removed */}
-
-                                <div className="flex items-start justify-between gap-2">
-                                    <div className="min-w-0 flex-1">
-                                        <div className="flex items-baseline gap-1.5 sm:gap-2 flex-wrap">
-                                            <span className="text-[#C4956A] text-xs sm:text-sm font-bold">
-                                                {ingredient.percentage}%
-                                            </span>
-                                            <h3 className="text-gray-900 text-sm sm:text-lg font-bold truncate">
-                                                {ingredient.name}
-                                            </h3>
-                                        </div>
-                                        {!isExpanded && (
-                                            <p className={`text-[11px] sm:text-sm mt-0.5 sm:mt-1 line-clamp-2 font-medium ${ingredient.id === 'ghk-cu' ? 'text-gray-900' : 'text-gray-700'}`}>
-                                                {ingredient.shortDesc}
-                                            </p>
-                                        )}
-                                    </div>
-                                    <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isExpanded
-                                        ? 'bg-[#C4956A]'
-                                        : 'border border-[#C4956A]/30'
-                                        }`}>
-                                        {isExpanded
-                                            ? <X className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
-                                            : <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C4956A]" />
-                                        }
-                                    </div>
-                                </div>
-
-                                {isExpanded && (
-                                    <div className="mt-3 sm:mt-4 pt-3 border-t border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
-                                        {ingredient.benefits.map((benefit, i) => (
-                                            <div
-                                                key={i}
-                                                className="flex items-start gap-2 sm:gap-2.5 py-1 sm:py-1.5"
-                                                style={{
-                                                    animation: `fadeInLeft 0.3s ease ${i * 0.08}s forwards`,
-                                                    opacity: 0
-                                                }}
-                                            >
-                                                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C4956A] flex-shrink-0 mt-0.5" />
-                                                <span className="text-gray-700 text-xs sm:text-sm">{benefit}</span>
-                                            </div>
-                                        ))}
-
-                                        {/* Studies Section */}
-                                        <div className="mt-4 pt-3 border-t border-gray-100">
-                                            <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-2 font-medium">
-                                                Klinische studies
-                                            </p>
-                                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                                {ingredient.studies.map((study, i) => (
-                                                    <a
-                                                        key={i}
-                                                        href={study.url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                        className="inline-flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 bg-gray-100 hover:bg-[#C4956A]/10 border border-gray-200 hover:border-[#C4956A]/30 rounded-md text-[10px] sm:text-xs text-gray-700 hover:text-[#C4956A] transition-all group"
-                                                    >
-                                                        <span>{study.label}</span>
-                                                        <ExternalLink className="w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                                                    </a>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div className="flex justify-center mt-8 sm:mt-12">
-                    <div className="inline-flex items-center gap-2 sm:gap-4 bg-gray-50 border border-gray-200 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm">
-                        <span className="text-gray-900 font-semibold">20.5% actief</span>
-                        <span className="text-gray-300">·</span>
-                        <span className="text-gray-600">6 technologieën</span>
-                        <span className="text-gray-300 hidden sm:inline">·</span>
-                        <span className="text-gray-600 hidden sm:inline">Hormoonvrij</span>
+                {/* Total Active Visual */}
+                <div className="flex justify-center mb-10">
+                    <div className="inline-flex items-center gap-4 bg-white rounded-full px-5 py-2.5 shadow-sm">
+                        <div className="flex items-center gap-1">
+                            {ingredients.map((ing, i) => (
+                                <div
+                                    key={ing.id}
+                                    className="h-2.5 rounded-full"
+                                    style={{
+                                        width: `${ing.percentage * 6}px`,
+                                        backgroundColor: ing.hero ? '#1E3A5F' : '#B87333',
+                                        opacity: 0.5 + (i * 0.08),
+                                    }}
+                                />
+                            ))}
+                        </div>
+                        <span className="text-[12px] font-bold text-[#2E2A25]">
+                            {totalActive}% actief
+                        </span>
                     </div>
                 </div>
+
+                {/* Ingredient Grid */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {ingredients.map((ingredient) => (
+                        <IngredientCard
+                            key={ingredient.id}
+                            ingredient={ingredient}
+                            isExpanded={expandedId === ingredient.id}
+                            onToggle={() => setExpandedId(
+                                expandedId === ingredient.id ? null : ingredient.id
+                            )}
+                        />
+                    ))}
+                </div>
+
+                {/* Bottom Info */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="mt-10 text-center"
+                >
+                    <div className="inline-flex flex-wrap justify-center gap-2 text-[11px]">
+                        {['Zonder parfum', 'Zonder alcohol', 'pH 5.5–6.0', 'Made in NL'].map(item => (
+                            <span
+                                key={item}
+                                className="bg-white px-3 py-1.5 rounded-full text-[#6B6560]"
+                            >
+                                {item}
+                            </span>
+                        ))}
+                    </div>
+
+                    <p className="text-[10px] text-[#9A958D] mt-5 max-w-md mx-auto">
+                        Alle claims zijn gebaseerd op gepubliceerde, peer-reviewed studies.
+                        Individuele resultaten kunnen variëren.
+                    </p>
+                </motion.div>
+            </div>
+        </section>
+    )
+}
+
+function IngredientCard({
+    ingredient,
+    isExpanded,
+    onToggle
+}: {
+    ingredient: typeof ingredients[0]
+    isExpanded: boolean
+    onToggle: () => void
+}) {
+    return (
+        <motion.div
+            layout
+            layoutId={ingredient.id}
+            transition={{
+                layout: { type: "spring", stiffness: 300, damping: 30 },
+                duration: 0.4
+            }}
+            className={`relative rounded-2xl overflow-hidden cursor-pointer ${ingredient.hero
+                ? 'bg-[#1E3A5F] text-white'
+                : 'bg-white border border-[#E8E4E0] hover:border-[#B87333]/30 hover:shadow-lg'
+                } ${isExpanded ? 'sm:col-span-2 lg:col-span-2 shadow-xl' : ''}`}
+            onClick={onToggle}
+            whileHover={{ scale: isExpanded ? 1 : 1.02 }}
+            whileTap={{ scale: 0.98 }}
+        >
+            {/* Header - always visible */}
+            <div className="p-5">
+                <div className="flex items-start justify-between">
+                    <div className="flex items-baseline gap-2">
+                        <motion.span
+                            layout="position"
+                            className={`text-[20px] font-bold ${ingredient.hero ? 'text-white' : 'text-[#B87333]'}`}
+                        >
+                            {ingredient.percentage}%
+                        </motion.span>
+                        <motion.span
+                            layout="position"
+                            className={`text-[15px] font-medium ${ingredient.hero ? 'text-white' : 'text-[#2E2A25]'}`}
+                        >
+                            {ingredient.name}
+                        </motion.span>
+                    </div>
+
+                    <motion.div
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                        className={`p-1.5 rounded-full ${ingredient.hero ? 'bg-white/20' : 'bg-[#F4F0EB]'}`}
+                    >
+                        <ChevronDown className={`w-4 h-4 ${ingredient.hero ? 'text-white' : 'text-[#6B6560]'}`} />
+                    </motion.div>
+                </div>
+
+                <motion.p
+                    layout="position"
+                    className={`text-[12px] mt-2 ${ingredient.hero ? 'text-white/70' : 'text-[#9A958D]'}`}
+                >
+                    {ingredient.shortDesc}
+                </motion.p>
+
+                {ingredient.hero && !isExpanded && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
+                        className="mt-3 inline-flex items-center gap-1 bg-white/20 text-white text-[10px] font-medium px-2.5 py-1 rounded-full"
+                    >
+                        ★ HERO INGREDIENT
+                    </motion.div>
+                )}
             </div>
 
-            <style jsx>{`
-                @keyframes fadeInLeft {
-                    from {
-                        opacity: 0;
-                        transform: translateX(-8px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateX(0);
-                    }
-                }
-                
-                /* GHK-Cu Animated Gold Gradient Border */
-                :global(.ghk-cu-gold-border) {
-                    position: relative;
-                    background: white;
-                }
-                
-                :global(.ghk-cu-gold-border)::before {
-                    content: '';
-                    position: absolute;
-                    inset: -2px;
-                    border-radius: 14px;
-                    background: linear-gradient(90deg, #c4956a, #ffd700, #e8b87d, #c4956a);
-                    background-size: 300% 100%;
-                    z-index: -1;
-                    animation: shine 3s linear infinite;
-                }
-                
-                :global(.ghk-cu-gold-border:hover)::before {
-                    animation-duration: 2s;
-                }
-                
-                @keyframes shine {
-                    0% { background-position: 0% 50%; }
-                    50% { background-position: 100% 50%; }
-                    100% { background-position: 0% 50%; }
-                }
-            `}</style>
-        </section>
+            {/* Expanded Content */}
+            <AnimatePresence mode="wait">
+                {isExpanded && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{
+                            opacity: 1,
+                            height: 'auto',
+                            transition: {
+                                height: { type: "spring", stiffness: 300, damping: 30 },
+                                opacity: { delay: 0.1, duration: 0.2 }
+                            }
+                        }}
+                        exit={{
+                            opacity: 0,
+                            height: 0,
+                            transition: {
+                                opacity: { duration: 0.15 },
+                                height: { delay: 0.1, duration: 0.2 }
+                            }
+                        }}
+                        className={`px-5 pb-5 ${ingredient.hero ? 'text-white' : 'text-[#2E2A25]'}`}
+                    >
+                        {/* Full Name */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.15 }}
+                            className={`text-[10px] uppercase tracking-wider mb-3 ${ingredient.hero ? 'text-white/50' : 'text-[#9A958D]'}`}
+                        >
+                            {ingredient.fullName}
+                        </motion.div>
+
+                        {/* Benefits - staggered */}
+                        <div className="space-y-2 mb-5">
+                            {ingredient.benefits.map((benefit, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, x: -15 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.2 + (i * 0.08) }}
+                                    className="flex items-start gap-2"
+                                >
+                                    <Check className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${ingredient.hero ? 'text-white/70' : 'text-[#A8B5A0]'}`} />
+                                    <span className={`text-[12px] ${ingredient.hero ? 'text-white/90' : 'text-[#4A4540]'}`}>
+                                        {benefit}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Studies Section */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4 }}
+                            className={`border-t pt-4 ${ingredient.hero ? 'border-white/20' : 'border-[#E8E4E0]'}`}
+                        >
+                            <div className={`text-[10px] uppercase tracking-wider mb-2 ${ingredient.hero ? 'text-white/50' : 'text-[#9A958D]'}`}>
+                                KLINISCHE STUDIES
+                            </div>
+
+                            <div className="flex flex-wrap gap-1.5">
+                                {ingredient.studies.map((study, i) => (
+                                    <motion.a
+                                        key={study.label}
+                                        href={study.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: 0.45 + (i * 0.05) }}
+                                        whileHover={{ scale: 1.05, y: -2 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className={`inline-flex items-center gap-1 text-[11px] px-2.5 py-1.5 rounded-lg transition-colors ${ingredient.hero
+                                            ? 'bg-white/10 hover:bg-white/25 text-white'
+                                            : 'bg-[#FAF9F6] hover:bg-[#B87333]/15 text-[#6B6560] hover:text-[#B87333]'
+                                            }`}
+                                    >
+                                        {study.label}
+                                        <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* Blue note for GHK-Cu */}
+                        {ingredient.blueNote && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.6 }}
+                                className={`mt-4 flex items-center gap-2 text-[10px] ${ingredient.hero ? 'text-white/60' : 'text-[#9A958D]'}`}
+                            >
+                                <div className="w-3 h-3 rounded-full bg-[#1E3A5F] border border-white/30" />
+                                De blauwe kleur is geen kleurstof — het is puur koper-peptide.
+                            </motion.div>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
     )
 }

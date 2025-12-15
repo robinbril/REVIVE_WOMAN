@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "REVIVE — Klinisch Bewezen Haarserum",
-  description:
-    "Wetenschappelijk bewezen haargroei serum. 20.5% actieve ingrediënten, 6 gepatenteerde technologieën. 88.9% resultaat in 6-8 weken. Geen hormonen, geen bijwerkingen.",
-  keywords:
-    "haargroei serum, haarverlies, Redensyl, Capixyl, Procapil, AnaGain, Baicapil, GHK-Cu, minoxidil alternatief, haarverlies behandeling, REVIVE",
-  openGraph: {
-    title: "REVIVE — Klinisch Bewezen Haarserum",
-    description:
-      "88.9% resultaat. 6 gepatenteerde technologieën. Wetenschappelijk bewezen.",
-    type: "website",
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
-    ],
-    apple: { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-  },
+  title: "REVIVE | 5% GHK-Cu Koperpeptide Serum",
+  description: "Hooggeconcentreerd 5% koperpeptide-serum voor huidherstel en textuurvernieuwing. Klinisch onderbouwd, 99,986% zuiver.",
 };
 
 export default function RootLayout({
@@ -29,8 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className="scroll-smooth">
-      <body className="antialiased">{children}</body>
+    <html lang="nl">
+      <body
+        className={`${cormorant.variable} ${dmSans.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
