@@ -24,8 +24,8 @@ export default function Hero() {
                             style={{ fontFamily: 'var(--font-heading)' }}
                             className="text-[36px] sm:text-[52px] lg:text-[64px] font-normal text-[#2E2A25] tracking-tight leading-[1.05] mb-5 sm:mb-6"
                         >
-                            Huid die gloeit.<br />
-                            <span className="text-[#B87333]">Zonder filter.</span>
+                            Kracht Uit Wetenschap.<br />
+                            <span className="text-[#B87333]">Glow Uit Jou.</span>
                         </motion.h1>
 
                         {/* SUBHEADLINE - groter en duidelijker */}
