@@ -14,8 +14,8 @@ export default function Guarantee() {
                 >
                     <ShieldCheck className="w-10 h-10 text-[#B87333] mx-auto mb-4" />
                     <h2
-                        style={{ fontFamily: 'var(--font-fraunces)' }}
-                        className="text-[22px] sm:text-[26px] font-normal text-[#2E2A25] mb-4"
+                        style={{ fontFamily: 'var(--font-heading)' }}
+                        className="text-[20px] sm:text-[26px] font-normal text-[#2E2A25] mb-3"
                     >
                         60 Dagen Garantie
                     </h2>

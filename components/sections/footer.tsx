@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="max-w-4xl mx-auto px-6 sm:px-8">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
                     <span
-                        style={{ fontFamily: 'var(--font-fraunces)' }}
+                        style={{ fontFamily: 'var(--font-heading)' }}
                         className="text-[22px] font-normal tracking-wide"
                     >
                         REVIVE.
