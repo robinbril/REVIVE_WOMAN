@@ -64,7 +64,7 @@ export default function Hero() {
                         >
                             <Button
                                 size="lg"
-                                className="w-full sm:w-auto h-[54px] sm:h-[58px] px-10 sm:px-12 text-[14px] sm:text-[15px] font-medium bg-[#C9A87C] hover:bg-[#B8956E] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
+                                className="w-full sm:w-auto h-[54px] sm:h-[58px] px-10 sm:px-12 text-[14px] sm:text-[15px] font-medium bg-[#1E3A5F] hover:bg-[#15304F] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
                                 asChild
                             >
                                 <Link href="#prijzen">

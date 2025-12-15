@@ -94,7 +94,7 @@ export default function Pricing() {
 
                     {/* CTA */}
                     <Button
-                        className="w-full h-14 text-[15px] font-medium bg-[#C9A87C] hover:bg-[#B8956E] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                        className="w-full h-14 text-[15px] font-medium bg-[#1E3A5F] hover:bg-[#15304F] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                         asChild
                     >
                         <Link href="/checkout">

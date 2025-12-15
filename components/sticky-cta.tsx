@@ -31,7 +31,7 @@ export default function StickyCTA() {
                     <div className="bg-white/80 backdrop-blur-xl border-t border-[#E8E4E0]/50 px-4 py-3 pb-safe">
                         <Link
                             href="#prijzen"
-                            className="flex items-center justify-center gap-2 w-full h-[50px] text-[14px] font-medium bg-[#C9A87C] hover:bg-[#B8956E] text-white rounded-full shadow-lg transition-all duration-300"
+                            className="flex items-center justify-center gap-2 w-full h-[50px] text-[14px] font-medium bg-[#1E3A5F] hover:bg-[#15304F] text-white rounded-full shadow-lg transition-all duration-300"
                         >
                             Start Routine · €49
                             <ArrowRight className="w-4 h-4" />
