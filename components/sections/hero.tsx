@@ -60,8 +60,8 @@ export default function Hero() {
                             className="lg:hidden relative w-full max-w-[180px] sm:max-w-[200px] mx-auto mb-5 sm:mb-8"
                         >
                             <Image
-                                src="/images/revive-bottle.png"
-                                alt="REVIVE Serum"
+                                src="/images/sero-bottle.png"
+                                alt="SERO. Serum"
                                 width={200}
                                 height={250}
                                 className="w-full h-auto drop-shadow-xl"
@@ -82,7 +82,7 @@ export default function Hero() {
                                 asChild
                             >
                                 <Link href="#prijzen">
-                                    Bestel Revive Skin
+                                    Bestel Sero.
                                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </Button>
@@ -114,8 +114,8 @@ export default function Hero() {
                         className="hidden lg:flex justify-center items-center"
                     >
                         <Image
-                            src="/images/revive-bottle.png"
-                            alt="REVIVE Serum"
+                            src="/images/sero-bottle.png"
+                            alt="SERO. Serum"
                             width={450}
                             height={560}
                             className="w-full h-auto max-w-[380px]"

@@ -41,7 +41,7 @@ export default function Header() {
                         className="font-semibold text-lg tracking-wide text-[#2E2A25] absolute left-1/2 -translate-x-1/2"
                         style={{ fontFamily: 'var(--font-heading)' }}
                     >
-                        REVIVE<span className="text-[#B87333]">.</span>
+                        SERO<span className="text-[#B87333]">.</span>
                     </Link>
 
                     {/* Right: Cart */}
@@ -84,7 +84,7 @@ export default function Header() {
                                     className="text-xl font-semibold tracking-wide text-[#2E2A25]"
                                     style={{ fontFamily: 'var(--font-heading)' }}
                                 >
-                                    REVIVE<span className="text-[#B87333]">.</span>
+                                    SERO<span className="text-[#B87333]">.</span>
                                 </span>
                             </Link>
 
