@@ -12,7 +12,7 @@ export default function Guarantee() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <ShieldCheck className="w-10 h-10 text-[#B87333] mx-auto mb-4" />
+                    <ShieldCheck className="w-10 h-10 text-[#C9A87C] mx-auto mb-4" />
                     <h2
                         style={{ fontFamily: 'var(--font-heading)' }}
                         className="text-[20px] sm:text-[26px] font-normal text-[#2E2A25] mb-3"
