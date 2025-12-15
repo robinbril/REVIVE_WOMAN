@@ -24,8 +24,8 @@ export default function Hero() {
                             style={{ fontFamily: 'var(--font-heading)' }}
                             className="text-[32px] sm:text-[48px] lg:text-[58px] font-normal text-[#2E2A25] tracking-tight leading-[1.08] mb-5 sm:mb-6"
                         >
-                            Huid die leeft.<br />
-                            <span className="text-[#B87333]">Zonder filter.</span>
+                            Kracht Uit Wetenschap.<br />
+                            <span className="text-[#B87333]">Glow Die Blijft.</span>
                         </motion.h1>
 
                         {/* SUBHEADLINE - clean, één idee */}
