@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/hero'
 import WhyCopperPeptides from '@/components/sections/why-copper-peptides'
+import FormulaFlow from '@/components/sections/formula-flow'
 import Ingredients from '@/components/sections/ingredients'
 import Reviews from '@/components/sections/reviews'
 import Pricing from '@/components/sections/pricing'
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <Hero />
       <WhyCopperPeptides />
+      <FormulaFlow />
       <Ingredients />
       <Reviews />
       <Pricing />
