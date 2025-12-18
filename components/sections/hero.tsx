@@ -89,34 +89,37 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - Product in Organic Squircle */}
+                    {/* RIGHT - Product in Organic OVAL (EXACT MATCH) */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
                         className="order-1 lg:order-2 flex justify-center lg:justify-end"
                     >
-                        {/* Organic Squircle Container */}
+                        {/* Organic Oval Container - Matches Bottle Aspect Ratio */}
                         <div 
-                            className="relative w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] lg:w-[460px] lg:h-[560px] bg-[radial-gradient(circle_at_35%_30%,#ffffff_0%,#fdfcfb_40%,#f9f6f3_100%)] shadow-[0_0_0_1px_rgba(201,145,86,0.1),0_20px_50px_rgba(0,0,0,0.06),0_40px_100px_rgba(201,145,86,0.1)]"
+                            className="relative w-[300px] sm:w-[360px] lg:w-[420px] aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.06),0_40px_100px_rgba(201,145,86,0.1)] overflow-hidden"
                             style={{
-                                borderRadius: '45% 55% 52% 48% / 48% 50% 50% 52%',
+                                background: 'radial-gradient(circle at 35% 30%, #fafafa 0%, #f5f5f5 100%)',
+                                borderRadius: '45% 55% 52% 48% / 58% 50% 50% 42%',
                                 animation: 'squircle-morph 30s ease-in-out infinite'
                             }}
                         >
-                            {/* Inner glow */}
+                            {/* Inner glow for depth */}
                             <div 
                                 className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.6)_0%,transparent_50%)] pointer-events-none"
                                 style={{ borderRadius: 'inherit' }}
                             />
 
-                            {/* BOTTLE - 50% width, 75% height, centered */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[75%] z-10">
+                            {/* BOTTLE - DOMINANT (75% width, 85% height) */}
+                            <div className="absolute inset-0 flex items-center justify-center p-8">
                                 <Image
                                     src="/images/revive-bottle-clean.png"
                                     alt="REVIVE Glow Serum"
-                                    fill
-                                    className="object-contain drop-shadow-[0_30px_60px_rgba(201,145,86,0.25)]"
+                                    width={400}
+                                    height={533}
+                                    className="w-[85%] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)] product-float"
+                                    style={{ filter: 'brightness(1.02) contrast(1.02)' }}
                                     priority
                                 />
                             </div>
