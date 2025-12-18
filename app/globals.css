@@ -281,3 +281,17 @@ h3,
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-12px) rotate(1deg); }
 }
+
+@keyframes squircle-morph {
+  0%, 100% { border-radius: 45% 55% 52% 48% / 48% 50% 50% 52%; }
+  25% { border-radius: 52% 48% 45% 55% / 55% 52% 48% 50%; }
+  50% { border-radius: 48% 52% 50% 50% / 52% 45% 55% 48%; }
+  75% { border-radius: 55% 45% 48% 52% / 50% 55% 52% 48%; }
+}
+
+@keyframes particle-float {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0); }
+  10% { opacity: 1; transform: translateY(-20px) scale(1); }
+  90% { opacity: 0.6; transform: translateY(-100px) scale(0.8); }
+  100% { opacity: 0; transform: translateY(-120px) scale(0); }
+}
