@@ -125,9 +125,9 @@ export default function Hero() {
                         transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
                         className="order-1 lg:order-2 flex justify-center lg:justify-end"
                     >
-                        {/* Organic Oval Container - EXACT SHAPE & MORE SHADOWS */}
+                        {/* Organic Oval Container - Shrinking as requested */}
                         <div 
-                            className="relative w-[300px] sm:w-[340px] lg:w-[410px] aspect-[1/1.25] shadow-[0_20px_50px_rgba(0,0,0,0.04),0_40px_100px_rgba(201,145,86,0.15)] overflow-hidden"
+                            className="relative w-[280px] sm:w-[320px] lg:w-[380px] aspect-[1/1.25] shadow-[0_20px_50px_rgba(0,0,0,0.04),0_40px_100px_rgba(201,145,86,0.15)] overflow-hidden"
                             style={{
                                 background: 'radial-gradient(circle at 35% 30%, #ffffff 0%, #fdfcfb 40%, #f9f6f3 100%)',
                                 borderRadius: '48% 52% 50% 50% / 65% 65% 35% 35%',
@@ -143,17 +143,19 @@ export default function Hero() {
                             {/* Glare sweep across the product shape */}
                             <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/40 to-transparent animate-[glare-sweep_8s_ease-in-out_infinite] pointer-events-none z-20" />
 
-                            {/* BOTTLE - EXTREMELY DOMINANT (95% width) */}
-                            <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
+                            {/* BOTTLE - Tilted and dominating (105% to feel bigger) */}
+                            <div className="absolute inset-0 flex items-center justify-center p-2 z-10">
                                 <Image
                                     src="/images/revive-bottle-clean.png"
                                     alt="REVIVE Glow Serum"
                                     width={450}
                                     height={600}
-                                    className="w-[95%] h-auto object-contain product-float"
+                                    className="w-[105%] h-auto object-contain product-float"
                                     style={{ 
                                         mixBlendMode: 'multiply',
-                                        filter: 'brightness(1.02) contrast(1.05)' 
+                                        filter: 'brightness(1.02) contrast(1.05)',
+                                        transformOrigin: 'center center',
+                                        rotate: '4deg'
                                     }}
                                     priority
                                 />
