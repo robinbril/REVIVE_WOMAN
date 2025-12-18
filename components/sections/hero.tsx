@@ -86,38 +86,22 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - Product in Oval (EXACT MATCH) */}
+                    {/* RIGHT - Product (NO OVAL, just shadow around image) */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
                         className="order-1 lg:order-2 flex justify-center lg:justify-end"
                     >
-                        {/* Outer subtle shadow/glow */}
-                        <div className="relative">
-                            {/* Soft beige glow behind oval */}
-                            <div 
-                                className="absolute -inset-8 bg-[#F0EBE4] blur-3xl opacity-60"
-                                style={{ borderRadius: '50%' }}
+                        {/* Product image with shadow - NO background oval */}
+                        <div className="relative w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] lg:w-[440px] lg:h-[540px]">
+                            <Image
+                                src="/images/revive-bottle-clean.png"
+                                alt="REVIVE Glow Serum"
+                                fill
+                                className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+                                priority
                             />
-                            
-                            {/* White oval container */}
-                            <div 
-                                className="relative w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] lg:w-[440px] lg:h-[540px] bg-white shadow-[0_8px_40px_rgba(0,0,0,0.06)]"
-                                style={{ borderRadius: '50%' }}
-                            >
-                                {/* Product image - centered and sized properly */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <Image
-                                        src="/images/revive-bottle-clean.png"
-                                        alt="REVIVE Glow Serum"
-                                        width={320}
-                                        height={400}
-                                        className="w-[70%] h-auto object-contain"
-                                        priority
-                                    />
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
 
