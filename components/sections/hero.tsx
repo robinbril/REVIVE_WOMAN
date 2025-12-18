@@ -96,12 +96,12 @@ export default function Hero() {
                         transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
                         className="order-1 lg:order-2 flex justify-center lg:justify-end"
                     >
-                        {/* Organic Oval Container - Shrunk to fit bottle better */}
+                        {/* Organic Oval Container - EXACT SHAPE & MORE SHADOWS */}
                         <div 
-                            className="relative w-[280px] sm:w-[320px] lg:w-[360px] aspect-[1/1.3] shadow-[0_20px_50px_rgba(0,0,0,0.06),0_40px_100px_rgba(201,145,86,0.1)] overflow-hidden"
+                            className="relative w-[300px] sm:w-[340px] lg:w-[380px] aspect-[1/1.25] shadow-[0_15px_35px_rgba(0,0,0,0.04),0_30px_60px_rgba(0,0,0,0.06),0_45px_100px_rgba(201,145,86,0.12)] overflow-hidden"
                             style={{
                                 background: '#ffffff',
-                                borderRadius: '45% 55% 52% 48% / 58% 50% 50% 42%',
+                                borderRadius: '48% 52% 50% 50% / 65% 65% 35% 35%',
                                 animation: 'squircle-morph 30s ease-in-out infinite'
                             }}
                         >
