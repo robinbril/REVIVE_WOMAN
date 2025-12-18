@@ -118,56 +118,56 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - LUXURY PRODUCT STAGE (TARGET B RECREATION) */}
+                    {/* RIGHT - LUXURY PRODUCT STAGE (TARGET B - FINAL 10/10 POLISH) */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                         className="order-1 lg:order-2 flex justify-center lg:justify-end relative group"
                     >
-                        {/* 4. Ambient Glow Behind Circle */}
-                        <div className="absolute inset-[-20%] bg-[radial-gradient(circle,rgba(184,115,51,0.15)_0%,rgba(184,115,51,0.06)_40%,transparent_70%)] blur-[60px] animate-[glow-pulse_8s_ease-in-out_infinite] pointer-events-none" />
+                        {/* 4. Ambient glow behind circle - Atmospheric Context */}
+                        <div className="absolute inset-[-25%] bg-[radial-gradient(circle,rgba(184,115,51,0.18)_0%,rgba(184,115,51,0.08)_40%,transparent_70%)] blur-[80px] animate-[glow-pulse_10s_ease-in-out_infinite] pointer-events-none" />
 
-                        {/* 1. SHAPE CHANGE: Perfect Cirkel Basis (Organic Morph) */}
+                        {/* 1. SHAPE: Circular Organic Stage */}
                         <div 
-                            className="relative w-[320px] sm:w-[380px] lg:w-[440px] aspect-square overflow-hidden"
+                            className="relative w-[340px] sm:w-[400px] lg:w-[460px] aspect-square overflow-visible"
                             style={{
-                                /* 5. BACKGROUND GRADIENT: Luxury Radial */
-                                background: 'radial-gradient(circle at 40% 35%, rgba(255,255,255,1) 0%, rgba(252,250,248,1) 50%, rgba(249,246,243,0.95) 100%)',
+                                /* 5. BACKGROUND GRADIENT: Center White -> Edges Warm Cream */
+                                background: 'radial-gradient(circle at 40% 35%, #ffffff 0%, #fdfcfb 60%, #f9f6f3 100%)',
                                 borderRadius: '48% 52% 50% 50% / 50% 50% 50% 50%',
                                 animation: 'squircle-morph 25s ease-in-out infinite',
-                                /* 3. SHADOW DEPTH: Multi-Layer Premium */
+                                /* 3. MULTI-LAYER SHADOWS (5 LAYERS) */
                                 boxShadow: `
-                                    0 0 0 1px rgba(201,145,86,0.06),
-                                    0 20px 40px rgba(0,0,0,0.04),
-                                    0 40px 80px rgba(0,0,0,0.06),
-                                    0 80px 160px rgba(201,145,86,0.08),
-                                    inset 0 2px 0 rgba(255,255,255,0.8)
+                                    0 0 0 1px rgba(201,145,86,0.05),
+                                    0 10px 20px rgba(0,0,0,0.03),
+                                    0 30px 60px rgba(0,0,0,0.05),
+                                    0 60px 120px rgba(201,145,86,0.1),
+                                    inset 0 2px 0 rgba(255,255,255,0.9)
                                 `
                             }}
                         >
-                            {/* 7. INNER LIGHTING: soft-light glow */}
+                            {/* 7. INNER LIGHTING: Top-left light source */}
                             <div 
-                                className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.7)_0%,transparent_45%)] pointer-events-none z-20 mix-blend-soft-light"
+                                className="absolute inset-0 bg-[radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7) 0%, transparent 50%)] pointer-events-none z-20 mix-blend-soft-light"
                                 style={{ borderRadius: 'inherit' }}
                             />
 
-                            {/* Glare effect inside */}
-                            <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/40 to-transparent animate-[glare-sweep_10s_ease-in-out_infinite] pointer-events-none z-30" />
+                            {/* Glare sweep loop */}
+                            <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/30 to-transparent animate-[glare-sweep_12s_ease-in-out_infinite] pointer-events-none z-30" />
 
-                            {/* 2. BOTTLE SIZING & 6. POSITIONING (Optical Center) */}
+                            {/* 2 & 6. BOTTLE SIZING (65% width) & OPTICAL POS. */}
                             <div className="absolute inset-0 flex items-center justify-center z-10 p-0 transform -translate-y-[2%]">
                                 <motion.div
                                     animate={{
-                                        y: [0, -15, 0],
-                                        rotate: [3, 5, 3],
+                                        y: [0, -12, 0],
+                                        rotate: [3, 4.5, 3],
                                     }}
                                     transition={{
-                                        duration: 8,
+                                        duration: 7,
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
-                                    className="w-[60%] h-[85%] relative"
+                                    className="w-[65%] h-[88%] relative"
                                 >
                                     <Image
                                         src="/images/revive-bottle-clean.png"
@@ -176,15 +176,15 @@ export default function Hero() {
                                         className="object-contain"
                                         style={{ 
                                             mixBlendMode: 'multiply',
-                                            filter: 'brightness(1.02) contrast(1.08) drop-shadow(0 30px 60px rgba(0,0,0,0.12))',
+                                            filter: 'brightness(1.02) contrast(1.1) drop-shadow(0 25px 50px rgba(0,0,0,0.12))',
                                         }}
                                         priority
                                     />
                                 </motion.div>
                             </div>
 
-                            {/* 8. EDGE SOFTNESS: Final filter */}
-                            <div className="absolute inset-0 border border-white/40 rounded-inherit z-40 pointer-events-none blur-[0.5px]" />
+                            {/* 8. EDGE SOFTNESS */}
+                            <div className="absolute inset-0 border border-white/40 rounded-inherit z-40 pointer-events-none blur-[0.4px]" />
                         </div>
                     </motion.div>
 
