@@ -52,23 +52,27 @@ export default function Hero() {
                             ))}
                         </motion.div>
 
-                        {/* MOBILE PRODUCT - Premium Squircle */}
+                        {/* MOBILE PRODUCT - Full image with squircle clip */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.08 }}
-                            className="lg:hidden relative w-full flex justify-center mb-8 pr-1"
+                            className="lg:hidden relative w-full flex justify-center mb-8"
                         >
-                            <div className="premium-glow-container w-[280px] h-[280px]">
-                                <div className="ambient-glow" />
-                                <div className="squircle-morph w-full h-full">
-                                    <div className="glare-effect" />
+                            <div className="relative w-[320px] h-[320px]">
+                                {/* Ambient glow behind */}
+                                <div className="absolute inset-0 bg-gradient-radial from-[#B87333]/15 via-[#B87333]/5 to-transparent blur-3xl scale-125" />
+                                
+                                {/* Image with squircle clip */}
+                                <div 
+                                    className="relative w-full h-full overflow-hidden product-float"
+                                    style={{ borderRadius: '45% 55% 52% 48% / 48% 50% 50% 52%' }}
+                                >
                                     <Image
                                         src="/images/hero-premium.png"
                                         alt="REVIVE Serum"
-                                        width={400}
-                                        height={400}
-                                        className="w-full h-auto product-float scale-110"
+                                        fill
+                                        className="object-cover"
                                         priority
                                     />
                                 </div>
@@ -112,23 +116,27 @@ export default function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* RIGHT - Desktop product - Premium Squircle */}
+                    {/* RIGHT - Desktop product - Full image with squircle clip */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 }}
                         className="hidden lg:flex justify-center items-center"
                     >
-                        <div className="premium-glow-container w-[500px] h-[500px]">
-                            <div className="ambient-glow" />
-                            <div className="squircle-morph w-full h-full">
-                                <div className="glare-effect" />
+                        <div className="relative w-[480px] h-[480px]">
+                            {/* Ambient glow behind */}
+                            <div className="absolute inset-0 bg-gradient-radial from-[#B87333]/15 via-[#B87333]/5 to-transparent blur-3xl scale-125" />
+                            
+                            {/* Image with squircle clip */}
+                            <div 
+                                className="relative w-full h-full overflow-hidden product-float"
+                                style={{ borderRadius: '45% 55% 52% 48% / 48% 50% 50% 52%' }}
+                            >
                                 <Image
                                     src="/images/hero-premium.png"
                                     alt="REVIVE Serum"
-                                    width={600}
-                                    height={600}
-                                    className="w-full h-auto product-float scale-110"
+                                    fill
+                                    className="object-cover"
                                     priority
                                 />
                             </div>
