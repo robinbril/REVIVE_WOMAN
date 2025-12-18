@@ -118,48 +118,73 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - Product in Organic OVAL (EXACT MATCH) */}
+                    {/* RIGHT - LUXURY PRODUCT STAGE (TARGET B RECREATION) */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                        transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
-                        className="order-1 lg:order-2 flex justify-center lg:justify-end"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        className="order-1 lg:order-2 flex justify-center lg:justify-end relative group"
                     >
-                        {/* Organic Oval Container - Shrinking as requested */}
+                        {/* 4. Ambient Glow Behind Circle */}
+                        <div className="absolute inset-[-20%] bg-[radial-gradient(circle,rgba(184,115,51,0.15)_0%,rgba(184,115,51,0.06)_40%,transparent_70%)] blur-[60px] animate-[glow-pulse_8s_ease-in-out_infinite] pointer-events-none" />
+
+                        {/* 1. SHAPE CHANGE: Perfect Cirkel Basis (Organic Morph) */}
                         <div 
-                            className="relative w-[280px] sm:w-[320px] lg:w-[380px] aspect-[1/1.25] shadow-[0_20px_50px_rgba(0,0,0,0.04),0_40px_100px_rgba(201,145,86,0.15)] overflow-hidden"
+                            className="relative w-[320px] sm:w-[380px] lg:w-[440px] aspect-square overflow-hidden"
                             style={{
-                                background: 'radial-gradient(circle at 35% 30%, #ffffff 0%, #fdfcfb 40%, #f9f6f3 100%)',
-                                borderRadius: '48% 52% 50% 50% / 65% 65% 35% 35%',
-                                animation: 'squircle-morph 25s ease-in-out infinite'
+                                /* 5. BACKGROUND GRADIENT: Luxury Radial */
+                                background: 'radial-gradient(circle at 40% 35%, rgba(255,255,255,1) 0%, rgba(252,250,248,1) 50%, rgba(249,246,243,0.95) 100%)',
+                                borderRadius: '48% 52% 50% 50% / 50% 50% 50% 50%',
+                                animation: 'squircle-morph 25s ease-in-out infinite',
+                                /* 3. SHADOW DEPTH: Multi-Layer Premium */
+                                boxShadow: `
+                                    0 0 0 1px rgba(201,145,86,0.06),
+                                    0 20px 40px rgba(0,0,0,0.04),
+                                    0 40px 80px rgba(0,0,0,0.06),
+                                    0 80px 160px rgba(201,145,86,0.08),
+                                    inset 0 2px 0 rgba(255,255,255,0.8)
+                                `
                             }}
                         >
-                            {/* Inner glow for depth */}
+                            {/* 7. INNER LIGHTING: soft-light glow */}
                             <div 
-                                className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.7)_0%,transparent_50%)] pointer-events-none"
+                                className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.7)_0%,transparent_45%)] pointer-events-none z-20 mix-blend-soft-light"
                                 style={{ borderRadius: 'inherit' }}
                             />
 
-                            {/* Glare sweep across the product shape */}
-                            <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/40 to-transparent animate-[glare-sweep_8s_ease-in-out_infinite] pointer-events-none z-20" />
+                            {/* Glare effect inside */}
+                            <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/40 to-transparent animate-[glare-sweep_10s_ease-in-out_infinite] pointer-events-none z-30" />
 
-                            {/* BOTTLE - Tilted and dominating (105% to feel bigger) */}
-                            <div className="absolute inset-0 flex items-center justify-center p-2 z-10">
-                                <Image
-                                    src="/images/revive-bottle-clean.png"
-                                    alt="REVIVE Glow Serum"
-                                    width={450}
-                                    height={600}
-                                    className="w-[105%] h-auto object-contain product-float"
-                                    style={{ 
-                                        mixBlendMode: 'multiply',
-                                        filter: 'brightness(1.02) contrast(1.05)',
-                                        transformOrigin: 'center center',
-                                        rotate: '4deg'
+                            {/* 2. BOTTLE SIZING & 6. POSITIONING (Optical Center) */}
+                            <div className="absolute inset-0 flex items-center justify-center z-10 p-0 transform -translate-y-[2%]">
+                                <motion.div
+                                    animate={{
+                                        y: [0, -15, 0],
+                                        rotate: [3, 5, 3],
                                     }}
-                                    priority
-                                />
+                                    transition={{
+                                        duration: 8,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="w-[60%] h-[85%] relative"
+                                >
+                                    <Image
+                                        src="/images/revive-bottle-clean.png"
+                                        alt="REVIVE Glow Serum"
+                                        fill
+                                        className="object-contain"
+                                        style={{ 
+                                            mixBlendMode: 'multiply',
+                                            filter: 'brightness(1.02) contrast(1.08) drop-shadow(0 30px 60px rgba(0,0,0,0.12))',
+                                        }}
+                                        priority
+                                    />
+                                </motion.div>
                             </div>
+
+                            {/* 8. EDGE SOFTNESS: Final filter */}
+                            <div className="absolute inset-0 border border-white/40 rounded-inherit z-40 pointer-events-none blur-[0.5px]" />
                         </div>
                     </motion.div>
 
