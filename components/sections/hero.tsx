@@ -86,20 +86,29 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - Product (NO OVAL, just shadow around image) */}
+                    {/* RIGHT - Product in WHITE OVAL */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
                         className="order-1 lg:order-2 flex justify-center lg:justify-end"
                     >
-                        {/* Product image with shadow - NO background oval */}
-                        <div className="relative w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] lg:w-[440px] lg:h-[540px]">
+                        {/* WHITE OVAL with shadow */}
+                        <div 
+                            className="relative flex items-center justify-center bg-white"
+                            style={{
+                                width: '440px',
+                                height: '540px',
+                                borderRadius: '50%',
+                                boxShadow: '0 10px 50px rgba(0, 0, 0, 0.08)'
+                            }}
+                        >
                             <Image
                                 src="/images/revive-bottle-clean.png"
                                 alt="REVIVE Glow Serum"
-                                fill
-                                className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+                                width={300}
+                                height={400}
+                                className="object-contain"
                                 priority
                             />
                         </div>
