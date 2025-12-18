@@ -91,15 +91,20 @@ export default function Hero() {
                         transition={{ delay: 0.3, type: "spring", stiffness: 80 }}
                         className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
                     >
-                        {/* Clean rounded container */}
-                        <div className="relative w-[300px] h-[380px] sm:w-[340px] sm:h-[430px] lg:w-[380px] lg:h-[480px] overflow-hidden rounded-[32px] shadow-xl">
-                            <Image
-                                src="/images/revive-bottle-clean.png"
-                                alt="REVIVE Glow Serum"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
+                        {/* Organic Round Container */}
+                        <div 
+                            className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] flex items-center justify-center bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden"
+                            style={{ borderRadius: '45% 55% 52% 48% / 48% 50% 50% 52%' }}
+                        >
+                            <div className="relative w-[65%] h-[85%]">
+                                <Image
+                                    src="/images/revive-bottle-clean.png"
+                                    alt="REVIVE Glow Serum"
+                                    fill
+                                    className="object-contain drop-shadow-2xl product-float"
+                                    priority
+                                />
+                            </div>
                         </div>
                     </motion.div>
 
