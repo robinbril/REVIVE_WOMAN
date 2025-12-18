@@ -10,8 +10,11 @@ export default function Hero() {
     return (
         <section className="relative min-h-[90vh] lg:min-h-screen flex items-center py-20 lg:py-0 bg-[#FAF9F6] overflow-hidden">
 
+            {/* Subtle ambient glow */}
+            <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(184,115,51,0.08)_0%,transparent_60%)] blur-3xl pointer-events-none" />
+
             <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
 
                     {/* LEFT - Content */}
                     <div className="order-2 lg:order-1 text-center lg:text-left">
@@ -39,12 +42,12 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             style={{ fontFamily: 'var(--font-heading)' }}
-                            className="text-[clamp(40px,7vw,72px)] font-normal leading-[1] tracking-tight text-[#1a1a1a] mb-4"
+                            className="text-[clamp(42px,7vw,68px)] font-normal leading-[1] tracking-tight text-[#1a1a1a] mb-5"
                         >
                             Kracht uit<br />
                             wetenschap.<br />
                             <span 
-                                className="italic text-[#B87333]"
+                                className="italic bg-gradient-to-r from-[#B87333] to-[#D4A574] bg-clip-text text-transparent"
                                 style={{ fontFamily: 'var(--font-heading)' }}
                             >
                                 Glow die blijft.
@@ -60,7 +63,7 @@ export default function Hero() {
                         >
                             <Button
                                 size="lg"
-                                className="h-[56px] px-10 text-[15px] font-semibold bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
+                                className="h-[58px] px-12 text-[15px] font-semibold bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-[0_8px_30px_rgba(184,115,51,0.35)] hover:shadow-[0_12px_40px_rgba(184,115,51,0.45)] hover:-translate-y-1 transition-all duration-300 group"
                                 asChild
                             >
                                 <Link href="#prijzen">
@@ -77,33 +80,24 @@ export default function Hero() {
                             transition={{ delay: 0.5 }}
                             className="text-[16px] text-[#6B6560] max-w-md mx-auto lg:mx-0 leading-relaxed"
                         >
-                            REVIVE bevat 5% GHK-Cu copper peptides in de hoogste concentratie die daadwerkelijk werkt.
+                            REVIVE bevat 5% GHK-Cu copper peptides. De hoogste concentratie in Europa.
                         </motion.p>
                     </div>
 
                     {/* RIGHT - Product Image */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.3, type: "spring", stiffness: 80 }}
                         className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
                     >
-                        {/* Blurred bokeh background */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,223,186,0.4)_0%,rgba(255,255,255,0.2)_40%,transparent_70%)] blur-2xl scale-110" />
-                        
-                        {/* Product container with soft edge */}
-                        <div className="relative w-full max-w-[500px] aspect-[4/5]">
-                            {/* Soft cream background shape */}
-                            <div 
-                                className="absolute inset-0 bg-gradient-to-br from-[#FFF8F0] via-[#FDF5ED] to-[#F5EDE5] rounded-[40px] shadow-xl"
-                            />
-                            
-                            {/* Product image */}
+                        {/* Clean rounded container */}
+                        <div className="relative w-[300px] h-[380px] sm:w-[340px] sm:h-[430px] lg:w-[380px] lg:h-[480px] overflow-hidden rounded-[32px] shadow-xl">
                             <Image
                                 src="/images/revive-bottle-clean.png"
                                 alt="REVIVE Glow Serum"
                                 fill
-                                className="object-contain p-8 drop-shadow-2xl product-float"
+                                className="object-cover"
                                 priority
                             />
                         </div>
