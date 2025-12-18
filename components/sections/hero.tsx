@@ -8,13 +8,10 @@ import { Button } from '@/components/ui/button'
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] lg:min-h-screen flex items-center py-20 lg:py-0 bg-[#FAF9F6] overflow-hidden">
+        <section className="relative min-h-[85vh] lg:min-h-screen flex items-center py-16 lg:py-0 bg-[#FAF9F6] overflow-hidden">
 
-            {/* Subtle ambient glow */}
-            <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(184,115,51,0.08)_0%,transparent_60%)] blur-3xl pointer-events-none" />
-
-            <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+            <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+                <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
                     {/* LEFT - Content */}
                     <div className="order-2 lg:order-1 text-center lg:text-left">
@@ -24,16 +21,16 @@ export default function Hero() {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100 mb-8"
+                            className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100 mb-10"
                         >
                             <Star className="w-4 h-4 fill-[#00b67a] text-[#00b67a]" />
-                            <span className="text-sm font-medium text-gray-700">Trustpilot</span>
+                            <span className="text-[13px] font-medium text-gray-600">Trustpilot</span>
                             <div className="flex gap-0.5 ml-1">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-3.5 h-3.5 fill-[#00b67a] text-[#00b67a]" />
+                                    <Star key={i} className="w-3 h-3 fill-[#00b67a] text-[#00b67a]" />
                                 ))}
                             </div>
-                            <span className="text-sm font-bold ml-1">4.8</span>
+                            <span className="text-[13px] font-bold ml-1">4.8</span>
                         </motion.div>
 
                         {/* Headline */}
@@ -42,33 +39,38 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             style={{ fontFamily: 'var(--font-heading)' }}
-                            className="text-[clamp(42px,7vw,68px)] font-normal leading-[1] tracking-tight text-[#1a1a1a] mb-5"
+                            className="text-[42px] sm:text-[52px] lg:text-[64px] font-normal leading-[1.05] tracking-tight text-[#1a1a1a] mb-2"
                         >
                             Kracht uit<br />
-                            wetenschap.<br />
-                            <span 
-                                className="italic bg-gradient-to-r from-[#B87333] to-[#D4A574] bg-clip-text text-transparent"
-                                style={{ fontFamily: 'var(--font-heading)' }}
-                            >
-                                Glow die blijft.
-                            </span>
+                            wetenschap.
                         </motion.h1>
+
+                        {/* Subheadline - Italic */}
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.25 }}
+                            style={{ fontFamily: 'var(--font-heading)' }}
+                            className="text-[42px] sm:text-[52px] lg:text-[64px] font-normal leading-[1.05] tracking-tight italic text-[#B87333] mb-10"
+                        >
+                            Glow die blijft.
+                        </motion.h2>
 
                         {/* CTA Button */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
+                            transition={{ delay: 0.35 }}
                             className="mb-8"
                         >
                             <Button
                                 size="lg"
-                                className="h-[58px] px-12 text-[15px] font-semibold bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-[0_8px_30px_rgba(184,115,51,0.35)] hover:shadow-[0_12px_40px_rgba(184,115,51,0.45)] hover:-translate-y-1 transition-all duration-300 group"
+                                className="h-[52px] px-8 text-[14px] font-semibold bg-[#B87333] hover:bg-[#9A5F2A] text-white rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group"
                                 asChild
                             >
                                 <Link href="#prijzen">
                                     Start Je Routine
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </Button>
                         </motion.div>
@@ -77,31 +79,36 @@ export default function Hero() {
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="text-[16px] text-[#6B6560] max-w-md mx-auto lg:mx-0 leading-relaxed"
+                            transition={{ delay: 0.45 }}
+                            className="text-[15px] text-[#7A756F] max-w-sm mx-auto lg:mx-0 leading-relaxed"
                         >
                             REVIVE bevat 5% GHK-Cu copper peptides. De hoogste concentratie in Europa.
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - Product Image */}
+                    {/* RIGHT - Product in Oval */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3, type: "spring", stiffness: 80 }}
-                        className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3, type: "spring", stiffness: 60 }}
+                        className="order-1 lg:order-2 flex justify-center lg:justify-end"
                     >
-                        {/* Organic Round Container */}
-                        <div 
-                            className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] flex items-center justify-center bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden"
-                            style={{ borderRadius: '45% 55% 52% 48% / 48% 50% 50% 52%' }}
-                        >
-                            <div className="relative w-[65%] h-[85%]">
+                        {/* Oval container */}
+                        <div className="relative w-[320px] h-[400px] sm:w-[380px] sm:h-[480px] lg:w-[440px] lg:h-[540px]">
+                            {/* Cream oval background */}
+                            <div 
+                                className="absolute inset-0 bg-gradient-to-b from-[#F5F0EA] to-[#EDE7E0] shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+                                style={{ borderRadius: '50%' }}
+                            />
+                            
+                            {/* Product image */}
+                            <div className="absolute inset-0 flex items-center justify-center p-8">
                                 <Image
                                     src="/images/revive-bottle-clean.png"
                                     alt="REVIVE Glow Serum"
-                                    fill
-                                    className="object-contain drop-shadow-2xl product-float"
+                                    width={380}
+                                    height={480}
+                                    className="w-[75%] h-auto object-contain drop-shadow-xl"
                                     priority
                                 />
                             </div>
