@@ -184,3 +184,100 @@ h3,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Premium Organic Squircle & Glow Effects */
+.premium-glow-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(184, 115, 51, 0.12) 0%,
+    rgba(184, 115, 51, 0.05) 50%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.squircle-morph {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.04),
+    0 20px 50px rgba(0, 0, 0, 0.06),
+    0 30px 80px rgba(184, 115, 51, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  animation: morph 20s linear infinite alternate;
+  will-change: border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.squircle-morph::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 60%,
+    rgba(250, 249, 247, 0.4) 85%,
+    rgba(250, 249, 247, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes morph {
+  0% { border-radius: 45% 55% 52% 48% / 48% 50% 50% 52%; }
+  25% { border-radius: 50% 50% 48% 52% / 55% 45% 52% 48%; }
+  50% { border-radius: 48% 52% 55% 45% / 50% 50% 48% 52%; }
+  75% { border-radius: 52% 48% 50% 50% / 45% 55% 52% 48%; }
+  100% { border-radius: 45% 55% 52% 48% / 48% 50% 50% 52%; }
+}
+
+.glare-effect {
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: glare 10s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes glare {
+  0% { left: -200%; }
+  30% { left: 200%; }
+  100% { left: 200%; }
+}
+
+.product-float {
+  animation: float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}

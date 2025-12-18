@@ -52,21 +52,27 @@ export default function Hero() {
                             ))}
                         </motion.div>
 
-                        {/* MOBILE PRODUCT */}
+                        {/* MOBILE PRODUCT - Premium Squircle */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.08 }}
-                            className="lg:hidden relative w-full max-w-[280px] mx-auto mb-8"
+                            className="lg:hidden relative w-full flex justify-center mb-8 pr-1"
                         >
-                            <Image
-                                src="/images/revive-bottle.png"
-                                alt="REVIVE Serum"
-                                width={400}
-                                height={400}
-                                className="w-full h-auto"
-                                priority
-                            />
+                            <div className="premium-glow-container w-[280px] h-[280px]">
+                                <div className="ambient-glow" />
+                                <div className="squircle-morph w-full h-full">
+                                    <div className="glare-effect" />
+                                    <Image
+                                        src="/images/revive-bottle.png"
+                                        alt="REVIVE Serum"
+                                        width={400}
+                                        height={400}
+                                        className="w-[75%] h-auto product-float"
+                                        priority
+                                    />
+                                </div>
+                            </div>
                         </motion.div>
 
                         {/* CTA */}
@@ -106,21 +112,27 @@ export default function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* RIGHT - Desktop product */}
+                    {/* RIGHT - Desktop product - Premium Squircle */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 }}
                         className="hidden lg:flex justify-center items-center"
                     >
-                        <Image
-                            src="/images/revive-bottle.png"
-                            alt="REVIVE Serum"
-                            width={600}
-                            height={600}
-                            className="w-full h-auto max-w-[500px]"
-                            priority
-                        />
+                        <div className="premium-glow-container w-[500px] h-[500px]">
+                            <div className="ambient-glow" />
+                            <div className="squircle-morph w-full h-full">
+                                <div className="glare-effect" />
+                                <Image
+                                    src="/images/revive-bottle.png"
+                                    alt="REVIVE Serum"
+                                    width={600}
+                                    height={600}
+                                    className="w-[70%] h-auto product-float"
+                                    priority
+                                />
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>
