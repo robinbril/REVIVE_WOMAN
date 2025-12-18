@@ -64,11 +64,11 @@ export default function Hero() {
                                 <div className="squircle-morph w-full h-full">
                                     <div className="glare-effect" />
                                     <Image
-                                        src="/images/revive-bottle.png"
+                                        src="/images/hero-premium.png"
                                         alt="REVIVE Serum"
                                         width={400}
                                         height={400}
-                                        className="w-[75%] h-auto product-float"
+                                        className="w-full h-auto product-float scale-110"
                                         priority
                                     />
                                 </div>
@@ -124,11 +124,11 @@ export default function Hero() {
                             <div className="squircle-morph w-full h-full">
                                 <div className="glare-effect" />
                                 <Image
-                                    src="/images/revive-bottle.png"
+                                    src="/images/hero-premium.png"
                                     alt="REVIVE Serum"
                                     width={600}
                                     height={600}
-                                    className="w-[70%] h-auto product-float"
+                                    className="w-full h-auto product-float scale-110"
                                     priority
                                 />
                             </div>
