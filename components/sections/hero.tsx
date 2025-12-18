@@ -33,42 +33,37 @@ export default function Hero() {
                 <span className="text-lg font-bold">4.8</span>
             </motion.div>
 
-            {/* PRODUCT STAGE */}
+            {/* PRODUCT STAGE - CLEAN & DOMINANT */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-                className="relative z-5 w-full max-w-[500px] aspect-square mx-auto mb-16 px-6"
+                className="relative z-5 w-full max-w-[550px] aspect-square mx-auto mb-12 px-4"
             >
-                {/* Organic Squircle Container */}
+                {/* Organic Squircle Container - Gradient background */}
                 <div 
-                    className="relative w-full h-full bg-[radial-gradient(circle_at_35%_30%,#ffffff_0%,#fdfcfb_40%,#f9f6f3_100%)] shadow-[0_0_0_1px_rgba(184,115,51,0.1),0_30px_60px_rgba(0,0,0,0.08),0_60px_120px_rgba(0,0,0,0.06),0_90px_180px_rgba(184,115,51,0.12)]"
+                    className="relative w-full h-full overflow-hidden"
                     style={{
+                        background: 'radial-gradient(circle at 35% 30%, #ffffff 0%, #fdfcfb 40%, #f9f6f3 100%)',
                         borderRadius: '45% 55% 52% 48% / 48% 50% 50% 52%',
+                        boxShadow: '0 0 0 1px rgba(184,115,51,0.08), 0 30px 60px rgba(0,0,0,0.06), 0 60px 120px rgba(184,115,51,0.1)',
                         animation: 'squircle-morph 30s ease-in-out infinite'
                     }}
                 >
-                    {/* Inner glow */}
+                    {/* Inner highlight */}
                     <div 
-                        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.6)_0%,transparent_50%)] pointer-events-none"
+                        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.7)_0%,transparent_50%)] pointer-events-none"
                         style={{ borderRadius: 'inherit' }}
                     />
 
-                    {/* Glare sweep */}
-                    <div className="glare-effect" />
-
-                    {/* Floating particles */}
-                    <div className="absolute top-[15%] left-[15%] w-2.5 h-2.5 bg-[radial-gradient(circle,rgba(184,115,51,0.8)_0%,rgba(184,115,51,0.3)_50%,transparent_70%)] rounded-full opacity-0 blur-[1px] animate-[particle-float_10s_ease-in-out_infinite]" />
-                    <div className="absolute top-[60%] right-[18%] w-2.5 h-2.5 bg-[radial-gradient(circle,rgba(184,115,51,0.8)_0%,rgba(184,115,51,0.3)_50%,transparent_70%)] rounded-full opacity-0 blur-[1px] animate-[particle-float_12s_ease-in-out_3s_infinite]" />
-                    <div className="absolute bottom-[25%] left-[22%] w-2.5 h-2.5 bg-[radial-gradient(circle,rgba(184,115,51,0.8)_0%,rgba(184,115,51,0.3)_50%,transparent_70%)] rounded-full opacity-0 blur-[1px] animate-[particle-float_11s_ease-in-out_5s_infinite]" />
-
-                    {/* BOTTLE - CENTERED & FLOATING */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[80%] z-10">
+                    {/* BOTTLE - LARGE & CENTERED - No ribbons, no particles */}
+                    <div className="absolute inset-0 flex items-center justify-center">
                         <Image
-                            src="/images/hero-premium.png"
+                            src="/images/revive-bottle-clean.png"
                             alt="REVIVE Serum"
-                            fill
-                            className="object-contain drop-shadow-[0_40px_80px_rgba(184,115,51,0.3)] product-float"
+                            width={600}
+                            height={800}
+                            className="w-[70%] h-[85%] object-contain drop-shadow-[0_30px_60px_rgba(184,115,51,0.25)] product-float"
                             priority
                         />
                     </div>
