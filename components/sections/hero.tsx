@@ -130,10 +130,10 @@ export default function Hero() {
 
                         {/* 1. SHAPE: Circular Organic Stage - ENFORCED CLIPPING */}
                         <div 
-                            className="relative w-[340px] sm:w-[400px] lg:w-[460px] aspect-square overflow-hidden"
+                            className="relative w-[340px] sm:w-[400px] lg:w-[460px] aspect-square overflow-hidden isolate"
                             style={{
                                 /* 5. BACKGROUND GRADIENT: Unified high-key lighting */
-                                background: 'radial-gradient(circle at 40% 35%, #ffffff 0%, #fdfcfb 60%, #f9f6f3 100%)',
+                                background: 'radial-gradient(circle at 40% 35%, #ffffff 0%, #fefdfc 60%, #f9f6f3 100%)',
                                 borderRadius: '48% 52% 50% 50% / 50% 50% 50% 50%',
                                 animation: 'squircle-morph 25s ease-in-out infinite',
                                 /* 3. MULTI-LAYER SHADOWS */
@@ -142,20 +142,20 @@ export default function Hero() {
                                     0 10px 20px rgba(0,0,0,0.03),
                                     0 30px 60px rgba(0,0,0,0.05),
                                     0 60px 120px rgba(201,145,86,0.1),
-                                    inset 0 2px 0 rgba(255,255,255,0.9)
+                                    inset 0 2px 5px rgba(255,255,255,1)
                                 `
                             }}
                         >
                             {/* Inner glow for realism */}
                             <div 
-                                className="absolute inset-0 bg-[radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7) 0%, transparent 50%)] pointer-events-none z-20 mix-blend-soft-light"
+                                className="absolute inset-0 bg-[radial-gradient(circle at 30% 25%, rgba(255,255,255,1) 0%, transparent 60%)] pointer-events-none z-20 mix-blend-soft-light"
                                 style={{ borderRadius: 'inherit' }}
                             />
 
-                            {/* Glare sweep loop - Moved lower in z-index to not clip strangely */}
+                            {/* Glare sweep loop */}
                             <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/30 to-transparent animate-[glare-sweep_12s_ease-in-out_infinite] pointer-events-none z-30" />
 
-                            {/* BOTTLE - DIRECT BLEND WITH NO INTERMEDIATE WRAPPERS */}
+                            {/* BOTTLE - NO WRAPPER BACKGROUNDS, DIRECT CLIPPING */}
                             <motion.div
                                 animate={{
                                     y: [0, -12, 0],
@@ -167,9 +167,9 @@ export default function Hero() {
                                     ease: "easeInOut"
                                 }}
                                 className="absolute inset-0 flex items-center justify-center z-10 p-0 transform -translate-y-[2%]"
-                                style={{ borderRadius: 'inherit' }}
+                                style={{ borderRadius: 'inherit', background: 'transparent' }}
                             >
-                                <div className="w-[65%] h-[88%] relative">
+                                <div className="w-[65%] h-[88%] relative overflow-hidden" style={{ borderRadius: 'inherit', background: 'transparent' }}>
                                     <Image
                                         src="/images/revive-bottle-clean.png"
                                         alt="REVIVE Glow Serum"
@@ -177,7 +177,8 @@ export default function Hero() {
                                         className="object-contain"
                                         style={{ 
                                             mixBlendMode: 'multiply',
-                                            filter: 'brightness(1.02) contrast(1.1) drop-shadow(0 25px 50px rgba(0,0,0,0.12))',
+                                            filter: 'brightness(1.02) contrast(1.1) drop-shadow(0 25px 50px rgba(0,0,0,0.1))',
+                                            background: 'transparent'
                                         }}
                                         priority
                                     />
