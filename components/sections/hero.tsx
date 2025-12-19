@@ -118,7 +118,7 @@ export default function Hero() {
                         </motion.p>
                     </div>
 
-                    {/* RIGHT - LUXURY PRODUCT STAGE (TARGET B - FINAL 10/10 POLISH) */}
+                    {/* RIGHT - LUXURY PRODUCT STAGE (BOTTLE BLEND FIX) */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -128,15 +128,15 @@ export default function Hero() {
                         {/* 4. Ambient glow behind circle - Atmospheric Context */}
                         <div className="absolute inset-[-25%] bg-[radial-gradient(circle,rgba(184,115,51,0.18)_0%,rgba(184,115,51,0.08)_40%,transparent_70%)] blur-[80px] animate-[glow-pulse_10s_ease-in-out_infinite] pointer-events-none" />
 
-                        {/* 1. SHAPE: Circular Organic Stage */}
+                        {/* 1. SHAPE: Circular Organic Stage - ENFORCED CLIPPING */}
                         <div 
-                            className="relative w-[340px] sm:w-[400px] lg:w-[460px] aspect-square overflow-visible"
+                            className="relative w-[340px] sm:w-[400px] lg:w-[460px] aspect-square overflow-hidden"
                             style={{
-                                /* 5. BACKGROUND GRADIENT: Center White -> Edges Warm Cream */
+                                /* 5. BACKGROUND GRADIENT: Unified high-key lighting */
                                 background: 'radial-gradient(circle at 40% 35%, #ffffff 0%, #fdfcfb 60%, #f9f6f3 100%)',
                                 borderRadius: '48% 52% 50% 50% / 50% 50% 50% 50%',
                                 animation: 'squircle-morph 25s ease-in-out infinite',
-                                /* 3. MULTI-LAYER SHADOWS (5 LAYERS) */
+                                /* 3. MULTI-LAYER SHADOWS */
                                 boxShadow: `
                                     0 0 0 1px rgba(201,145,86,0.05),
                                     0 10px 20px rgba(0,0,0,0.03),
@@ -146,29 +146,30 @@ export default function Hero() {
                                 `
                             }}
                         >
-                            {/* 7. INNER LIGHTING: Top-left light source */}
+                            {/* Inner glow for realism */}
                             <div 
                                 className="absolute inset-0 bg-[radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7) 0%, transparent 50%)] pointer-events-none z-20 mix-blend-soft-light"
                                 style={{ borderRadius: 'inherit' }}
                             />
 
-                            {/* Glare sweep loop */}
+                            {/* Glare sweep loop - Moved lower in z-index to not clip strangely */}
                             <div className="absolute inset-[-100%] bg-gradient-to-tr from-transparent via-white/30 to-transparent animate-[glare-sweep_12s_ease-in-out_infinite] pointer-events-none z-30" />
 
-                            {/* 2 & 6. BOTTLE SIZING (65% width) & OPTICAL POS. */}
-                            <div className="absolute inset-0 flex items-center justify-center z-10 p-0 transform -translate-y-[2%]">
-                                <motion.div
-                                    animate={{
-                                        y: [0, -12, 0],
-                                        rotate: [3, 4.5, 3],
-                                    }}
-                                    transition={{
-                                        duration: 7,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-                                    className="w-[65%] h-[88%] relative"
-                                >
+                            {/* BOTTLE - DIRECT BLEND WITH NO INTERMEDIATE WRAPPERS */}
+                            <motion.div
+                                animate={{
+                                    y: [0, -12, 0],
+                                    rotate: [3, 4.5, 3],
+                                }}
+                                transition={{
+                                    duration: 7,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                className="absolute inset-0 flex items-center justify-center z-10 p-0 transform -translate-y-[2%]"
+                                style={{ borderRadius: 'inherit' }}
+                            >
+                                <div className="w-[65%] h-[88%] relative">
                                     <Image
                                         src="/images/revive-bottle-clean.png"
                                         alt="REVIVE Glow Serum"
@@ -180,10 +181,10 @@ export default function Hero() {
                                         }}
                                         priority
                                     />
-                                </motion.div>
-                            </div>
+                                </div>
+                            </motion.div>
 
-                            {/* 8. EDGE SOFTNESS */}
+                            {/* EDGE SOFTNESS */}
                             <div className="absolute inset-0 border border-white/40 rounded-inherit z-40 pointer-events-none blur-[0.4px]" />
                         </div>
                     </motion.div>
