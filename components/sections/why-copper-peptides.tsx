@@ -86,50 +86,81 @@ export default function WhyCopperPeptides() {
                     </p>
                 </motion.div>
 
-                {/* 3. Three Stat Cards */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="grid sm:grid-cols-3 gap-5 mb-16"
-                >
-                    {stats.map((stat, i) => (
-                        <motion.div
-                            key={stat.label}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.08)' }}
-                            className="bg-white rounded-2xl p-6 sm:p-8 text-center shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all"
-                        >
-                            <div className="w-10 h-10 mx-auto mb-4 rounded-full bg-[#B87333]/10 flex items-center justify-center">
-                                <stat.Icon className="w-5 h-5 text-[#B87333]" />
-                            </div>
-                            <div
-                                style={{ fontFamily: 'var(--font-heading)' }}
-                                className="text-[32px] font-normal text-[#B87333] mb-1"
+                {/* 3. Stats Cards - Premium Carousel on Mobile */}
+                <div className="mb-16">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
+                    >
+                        {stats.map((stat, i) => (
+                            <motion.div
+                                key={stat.label}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white rounded-2xl p-6 sm:p-8 text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-[#F4F0EB] relative overflow-hidden group hover:shadow-[0_12px_40px_rgba(184,115,51,0.08)] hover:border-[#B87333]/20 transition-all duration-500"
                             >
-                                {stat.value}
-                            </div>
-                            <div className="text-[15px] font-medium text-[#2E2A25] mb-2">
-                                {stat.label}
-                            </div>
-                            <p className="text-[12px] text-[#6B6560] mb-4">
-                                {stat.description}
-                            </p>
-                            <a
-                                href={stat.sourceUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-[10px] bg-[#FAF9F6] text-[#6B6560] px-3 py-1.5 rounded-full hover:bg-[#B87333]/10 hover:text-[#B87333] transition-colors"
-                            >
-                                {stat.source}
-                                <ExternalLink className="w-2.5 h-2.5 opacity-50" />
-                            </a>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                                {/* Background Glow */}
+                                <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8F5] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                
+                                <div className="relative z-10 flex flex-row sm:flex-col items-center sm:justify-center gap-5 sm:gap-0 text-left sm:text-center">
+                                    <div className="w-12 h-12 shrink-0 sm:mx-auto sm:mb-5 rounded-2xl bg-gradient-to-br from-[#FFF8F5] to-[#F4F0EB] flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-500">
+                                        <stat.Icon className="w-5 h-5 text-[#B87333]" />
+                                    </div>
+                                    
+                                    <div className="flex-1 sm:flex-none">
+                                        <div
+                                            style={{ fontFamily: 'var(--font-heading)' }}
+                                            className="text-[32px] sm:text-[42px] leading-none font-medium text-transparent bg-clip-text bg-gradient-to-br from-[#B87333] via-[#A05D25] to-[#80400B] mb-1 sm:mb-2"
+                                        >
+                                            {stat.value}
+                                        </div>
+                                        
+                                        <div className="text-[15px] font-semibold text-[#2E2A25] mb-1 sm:mb-3 tracking-wide">
+                                            {stat.label}
+                                        </div>
+
+                                        <p className="text-[13px] text-[#6B6560] leading-relaxed sm:mb-6 sm:max-w-[200px] sm:mx-auto hidden sm:block">
+                                            {stat.description}
+                                        </p>
+                                    </div>
+                                    
+                                    {/* Mobile Only Description & Source - simplified/compact */}
+                                    <div className="sm:hidden text-right">
+                                         <a
+                                            href={stat.sourceUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-medium text-[#9A958D]"
+                                        >
+                                            <span className="sr-only">Source</span>
+                                            <ExternalLink className="w-3 h-3 opacity-50" />
+                                        </a>
+                                    </div>
+                                    
+                                    <div className="hidden sm:block">
+                                        <a
+                                            href={stat.sourceUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-medium text-[#9A958D] hover:text-[#B87333] transition-colors bg-[#F5F5F5] px-3 py-1.5 rounded-full"
+                                        >
+                                            {stat.source}
+                                            <ExternalLink className="w-2.5 h-2.5 opacity-50" />
+                                        </a>
+                                    </div>
+                                </div>
+                                {/* Mobile description underneath */}
+                                <p className="text-[13px] text-[#6B6560] leading-relaxed mt-3 sm:hidden text-left pl-[68px]">
+                                    {stat.description}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
 
                 {/* 4. Waarom 5% - DERDE */}
                 <motion.div
@@ -141,13 +172,13 @@ export default function WhyCopperPeptides() {
                     <div>
                         <h2
                             style={{ fontFamily: 'var(--font-heading)' }}
-                            className="text-[28px] sm:text-[36px] font-normal text-[#2E2A25] mb-4"
+                            className="text-[28px] sm:text-[36px] font-normal text-white sm:text-[#2E2A25] mb-4"
                         >
                             Waarom 5%?
                         </h2>
-                        <p className="text-[16px] text-[#4A4540] leading-[1.7]">
+                        <p className="text-[16px] text-white/80 sm:text-[#4A4540] leading-[1.7]">
                             De meeste serums bevatten 0,1–1% — net genoeg om op het label te zetten.
-                            <strong className="text-[#2E2A25]"> REVIVE bevat 5%</strong>: de klinische dosis die daadwerkelijk werkt.
+                            <strong className="text-white sm:text-[#2E2A25]"> REVIVE bevat 5%</strong>: de klinische dosis die daadwerkelijk werkt.
                         </p>
                     </div>
 

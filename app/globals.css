@@ -295,3 +295,12 @@ h3,
   90% { opacity: 0.6; transform: translateY(-100px) scale(0.8); }
   100% { opacity: 0; transform: translateY(-120px) scale(0); }
 }
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite linear;
+}
