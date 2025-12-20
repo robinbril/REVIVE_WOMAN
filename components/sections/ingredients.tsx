@@ -117,7 +117,7 @@ export default function Ingredients() {
     const totalActive = ingredients.reduce((sum, i) => sum + i.percentage, 0)
 
     return (
-        <section id="formule" className="py-24 sm:py-32 bg-[#FAF9F6]">
+        <section id="formule" className="py-16 sm:py-24 bg-[#FAF9F6]">
             <div className="max-w-5xl mx-auto px-6 sm:px-8">
 
                 {/* Header */}

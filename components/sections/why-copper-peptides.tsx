@@ -39,7 +39,7 @@ const stats = [
 
 export default function WhyCopperPeptides() {
     return (
-        <section className="py-24 sm:py-32 bg-[#FAF9F6]">
+        <section className="py-16 sm:py-24 bg-[#FAF9F6]">
             <div className="max-w-5xl mx-auto px-6 sm:px-8">
 
                 {/* 1. Quote Block - EERST */}
