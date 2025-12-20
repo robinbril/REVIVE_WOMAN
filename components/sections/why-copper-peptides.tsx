@@ -162,49 +162,7 @@ export default function WhyCopperPeptides() {
                     </motion.div>
                 </div>
 
-                {/* 4. Waarom 5% - DERDE */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
-                >
-                    <div>
-                        <h2
-                            style={{ fontFamily: 'var(--font-heading)' }}
-                            className="text-[28px] sm:text-[36px] font-normal text-white sm:text-[#2E2A25] mb-4"
-                        >
-                            Waarom 5%?
-                        </h2>
-                        <p className="text-[16px] text-white/80 sm:text-[#4A4540] leading-[1.7]">
-                            De meeste serums bevatten 0,1–1% — net genoeg om op het label te zetten.
-                            <strong className="text-white sm:text-[#2E2A25]"> REVIVE bevat 5%</strong>: de klinische dosis die daadwerkelijk werkt.
-                        </p>
-                    </div>
 
-                    {/* Concentration Bars */}
-                    <div className="bg-white rounded-2xl p-6 shadow-[0_4px_30px_rgba(0,0,0,0.04)]">
-                        {competitors.map((c, i) => (
-                            <div key={c.brand} className={`flex items-center gap-4 ${i < competitors.length - 1 ? 'mb-3' : ''}`}>
-                                <span className={`w-28 text-[13px] ${c.highlight ? 'font-bold text-[#B87333]' : 'text-[#6B6560]'}`}>
-                                    {c.brand}
-                                </span>
-                                <div className="flex-1 h-3 bg-[#F4F0EB] rounded-full overflow-hidden">
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        whileInView={{ width: `${(c.pct / 5) * 100}%` }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: i * 0.1, duration: 0.6 }}
-                                        className={`h-full rounded-full ${c.highlight ? 'bg-[#B87333]' : 'bg-[#D4CFC8]'}`}
-                                    />
-                                </div>
-                                <span className={`text-[13px] font-bold w-10 text-right ${c.highlight ? 'text-[#B87333]' : 'text-[#6B6560]'}`}>
-                                    {c.pct}%
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
 
             </div>
         </section>

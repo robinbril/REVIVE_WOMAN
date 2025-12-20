@@ -155,41 +155,56 @@ export default function Ingredients() {
                                 </p>
                             </div>
 
-                            {/* Visual Bars Container */}
-                            <div className="relative h-[48px] bg-[#F5F5F7] rounded-full overflow-visible mb-6 flex items-center p-1.5 shadow-inner">
-                                {/* Market Avg Marker Area */}
-                                <div className="absolute left-[8%] top-[-30px] flex flex-col items-center">
-                                    <span className="text-[10px] uppercase font-bold text-[#9A958D] tracking-wider mb-1">
+                            {/* Dual Bar Comparison */}
+                            <div className="space-y-4 mb-8">
+                                {/* Industry Standard Bar */}
+                                <div className="flex items-center gap-3">
+                                    <span className="text-[10px] uppercase font-bold text-[#9A958D] tracking-wider w-[80px] text-right shrink-0">
                                         Industrie Std.
                                     </span>
-                                    <div className="h-2 w-[1px] bg-[#9A958D]/30" />
-                                </div>
-
-                                {/* Market Avg Bar (Background reference) */}
-                                <div className="absolute left-[1.5%] w-[8%] h-[36px] bg-[#E5E5EA] rounded-l-full rounded-r-sm border-r border-white/50 z-10 flex items-center justify-center">
-                                    <span className="text-[10px] font-bold text-[#9A958D]">~2%</span>
-                                </div>
-
-                                {/* REVIVE Animate Bar */}
-                                <motion.div
-                                    initial={{ width: "0%" }}
-                                    whileInView={{ width: "100%" }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
-                                    className="relative h-[36px] rounded-full bg-gradient-to-r from-[#B87333] via-[#CA8A52] to-[#D49863] shadow-[0_2px_10px_rgba(184,115,51,0.2)] flex items-center justify-end px-4 z-20 overflow-hidden"
-                                >
-                                    {/* Shimmer Effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer" />
-
-                                    <span className="text-[13px] font-bold text-white tracking-wide relative z-10 whitespace-nowrap">
-                                        12.5% REVIVE
+                                    <div className="flex-1 h-[28px] bg-[#F3F4F6] rounded-full overflow-hidden relative">
+                                        <motion.div
+                                            initial={{ width: "0%" }}
+                                            whileInView={{ width: "10%" }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+                                            className="h-full bg-[#D1D5DB] rounded-full"
+                                        />
+                                    </div>
+                                    <span className="text-[12px] font-semibold text-[#6B7280] w-[50px] shrink-0">
+                                        0.1–2%
                                     </span>
-                                </motion.div>
+                                </div>
+
+                                {/* REVIVE Bar */}
+                                <div className="flex items-center gap-3">
+                                    <span className="text-[10px] uppercase font-bold text-[#2E2A25] tracking-wider w-[80px] text-right shrink-0">
+                                        REVIVE
+                                    </span>
+                                    <div className="flex-1 h-[32px] bg-[#F3F4F6] rounded-full overflow-hidden relative">
+                                        <motion.div
+                                            initial={{ width: "0%" }}
+                                            whileInView={{ width: "62.5%" }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+                                            className="h-full bg-gradient-to-r from-[#C99156] to-[#B8834D] rounded-full relative overflow-hidden shadow-[0_2px_8px_rgba(184,115,51,0.25)]"
+                                        >
+                                            {/* Shimmer Effect */}
+                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-100%] animate-shimmer" />
+                                        </motion.div>
+                                    </div>
+                                    <span className="text-[14px] font-bold text-[#2E2A25] w-[50px] shrink-0">
+                                        12.5%
+                                    </span>
+                                </div>
                             </div>
 
-                            <p className="text-center text-[13px] text-[#6B6560] leading-relaxed max-w-sm mx-auto">
-                                De meeste serums bevatten slechts <strong className="text-[#2E2A25]">0.1–2%</strong> werkzame stoffen. REVIVE bevat <strong className="text-[#B87333]">12.5%</strong> bewezen actieven.
-                            </p>
+                            {/* Explanation */}
+                            <div className="bg-[#FAF9F7] rounded-xl p-4 border-l-3 border-l-[#C99156]" style={{ borderLeftWidth: '3px' }}>
+                                <p className="text-[13px] text-[#6B6560] leading-relaxed">
+                                    De meeste serums bevatten slechts <strong className="text-[#2E2A25]">0.1–2%</strong> werkzame stoffen. REVIVE bevat <strong className="text-[#B87333]">12.5%</strong> bewezen actieven — dat is <strong className="text-[#2E2A25]">5x meer</strong> dan de industriestandaard.
+                                </p>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -200,32 +215,7 @@ export default function Ingredients() {
                     </p>
                 </motion.div>
 
-                {/* Total Active Visual - Premium Upgrade */}
-                <div className="flex justify-center mb-16">
-                    <div className="relative inline-flex items-center gap-5 bg-white p-2 pr-6 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-[#F4F0EB]">
-                        <div className="flex items-center gap-1.5 h-10 px-2">
-                            {ingredients.map((ing, i) => (
-                                <motion.div
-                                    key={ing.id}
-                                    initial={{ height: 0 }}
-                                    whileInView={{ height: '24px' }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 + (i * 0.1), type: "spring" }}
-                                    className={`w-1.5 rounded-full ${ing.hero ? 'bg-[#B87333]' : 'bg-[#D4CFC8]'}`}
-                                    style={{ opacity: ing.hero ? 1 : 0.5 }}
-                                />
-                            ))}
-                        </div>
-                        <div className="flex flex-col items-start">
-                            <span className="text-[18px] font-bold text-[#2E2A25] leading-none">
-                                {totalActive}%
-                            </span>
-                            <span className="text-[10px] uppercase tracking-wide text-[#9A958D] font-medium">
-                                Actieve Concentratie
-                            </span>
-                        </div>
-                    </div>
-                </div>
+
 
                 {/* Ingredient Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

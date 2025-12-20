@@ -1,12 +1,31 @@
+import dynamic from 'next/dynamic'
 import Hero from '@/components/sections/hero'
-import WhyCopperPeptides from '@/components/sections/why-copper-peptides'
-import Ingredients from '@/components/sections/ingredients'
-import Reviews from '@/components/sections/reviews'
-import Pricing from '@/components/sections/pricing'
-import Guarantee from '@/components/sections/guarantee'
-import Footer from '@/components/sections/footer'
 import Header from '@/components/header'
 import StickyCTA from '@/components/sticky-cta'
+
+const WhyCopperPeptides = dynamic(() => import('@/components/sections/why-copper-peptides'), {
+  loading: () => <div className="h-[400px]" />,
+})
+
+const Ingredients = dynamic(() => import('@/components/sections/ingredients'), {
+  loading: () => <div className="h-[600px]" />,
+})
+
+const Reviews = dynamic(() => import('@/components/sections/reviews'), {
+  loading: () => <div className="h-[400px]" />,
+})
+
+const Pricing = dynamic(() => import('@/components/sections/pricing'), {
+  loading: () => <div className="h-[500px]" />,
+})
+
+const Guarantee = dynamic(() => import('@/components/sections/guarantee'), {
+  loading: () => <div className="h-[300px]" />,
+})
+
+const Footer = dynamic(() => import('@/components/sections/footer'), {
+  loading: () => <div className="h-[200px]" />,
+})
 
 export default function Home() {
   return (
