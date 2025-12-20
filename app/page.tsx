@@ -19,10 +19,6 @@ const Pricing = dynamic(() => import('@/components/sections/pricing'), {
   loading: () => <div className="h-[500px]" />,
 })
 
-const Guarantee = dynamic(() => import('@/components/sections/guarantee'), {
-  loading: () => <div className="h-[300px]" />,
-})
-
 const Footer = dynamic(() => import('@/components/sections/footer'), {
   loading: () => <div className="h-[200px]" />,
 })
@@ -36,9 +32,9 @@ export default function Home() {
       <Ingredients />
       <Reviews />
       <Pricing />
-      <Guarantee />
       <Footer />
       <StickyCTA />
     </main>
   )
 }
+
