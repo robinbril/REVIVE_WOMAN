@@ -39,8 +39,17 @@ const stats = [
 
 export default function WhyCopperPeptides() {
     return (
-        <section className="py-16 sm:py-24 bg-[#FAF9F6]">
-            <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <section className="py-16 sm:py-24 relative overflow-hidden">
+            {/* Warm gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F7] via-white to-[#FFFAF7]" />
+            
+            {/* Subtle organic blob - left */}
+            <div className="absolute top-[20%] left-[-12%] w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(201,145,86,0.06)_0%,transparent_70%)] blur-[80px] opacity-50 pointer-events-none" />
+            
+            {/* Subtle organic blob - right */}
+            <div className="absolute bottom-[15%] right-[-8%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(201,145,86,0.05)_0%,transparent_70%)] blur-[75px] opacity-60 pointer-events-none" />
+
+            <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
 
                 {/* 1. Quote Block - EERST */}
                 <motion.blockquote

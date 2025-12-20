@@ -117,8 +117,17 @@ export default function Ingredients() {
     const totalActive = ingredients.reduce((sum, i) => sum + i.percentage, 0)
 
     return (
-        <section id="formule" className="py-16 sm:py-24 bg-[#FAF9F6]">
-            <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <section id="formule" className="py-16 sm:py-24 relative overflow-hidden">
+            {/* Warm gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FAF9F7] to-[#F5F3F0]" />
+            
+            {/* Large organic blob - top right */}
+            <div className="absolute top-[-10%] right-[-15%] w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(201,145,86,0.08)_0%,rgba(201,145,86,0.04)_50%,transparent_70%)] blur-[90px] opacity-60 pointer-events-none" />
+            
+            {/* Medium blob - bottom left (subtle navy for transition) */}
+            <div className="absolute bottom-[-5%] left-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(26,35,50,0.03)_0%,transparent_70%)] blur-[85px] opacity-40 pointer-events-none" />
+
+            <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
 
                 {/* Header */}
                 <motion.div
