@@ -11,7 +11,7 @@ export default function Hero() {
         <section className="relative min-h-[100svh] lg:min-h-screen flex items-center py-4 lg:py-0 overflow-hidden">
 
             {/* Premium layered background with depth */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FFF5F0] via-[#FFFAF7] to-[#FAF9F7]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FFFAF8] via-[#FFFCFA] to-[#FAF9F7]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,145,86,0.08)_0%,transparent_60%)] pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] pointer-events-none" />
             
@@ -153,9 +153,9 @@ export default function Hero() {
                         {/* Elegant oval container - soft feathered edges */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                             {/* Outer soft glow ring */}
-                            <div className="absolute w-[360px] h-[460px] sm:w-[460px] sm:h-[540px] lg:w-[520px] lg:h-[600px] bg-gradient-to-b from-[#FFF0EC]/40 via-[#FFE8E0]/30 to-[#FFDDD3]/20 rounded-[50%] blur-[25px]" />
+                            <div className="absolute w-[360px] h-[460px] sm:w-[460px] sm:h-[540px] lg:w-[520px] lg:h-[600px] bg-gradient-to-b from-[#FFF8F5]/35 via-[#FFF0EB]/25 to-[#FFE8E0]/15 rounded-[50%] blur-[25px]" />
                             {/* Main oval */}
-                            <div className="w-[340px] h-[440px] sm:w-[440px] sm:h-[520px] lg:w-[490px] lg:h-[570px] bg-gradient-to-b from-[#FFFAF8] via-[#FFF0EC] to-[#FFE8E2] rounded-[50%] shadow-[0_0_80px_rgba(255,200,180,0.25),inset_0_0_80px_rgba(255,255,255,0.7)]" />
+                            <div className="w-[340px] h-[440px] sm:w-[440px] sm:h-[520px] lg:w-[490px] lg:h-[570px] bg-gradient-to-b from-[#FFFCFA] via-[#FFF8F5] to-[#FFF0EB] rounded-[50%] shadow-[0_0_80px_rgba(255,220,200,0.2),inset_0_0_80px_rgba(255,255,255,0.7)]" />
                         </div>
 
                         {/* WHITE STARBURST LIGHT RAYS - Award-winning divine glow */}
