@@ -39,15 +39,12 @@ const stats = [
 
 export default function WhyCopperPeptides() {
     return (
-        <section className="py-16 sm:py-24 relative overflow-hidden">
-            {/* Warm gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F7] via-white to-[#FFFAF7]" />
-            
+        <section className="py-10 sm:py-20 relative overflow-hidden">
             {/* Subtle organic blob - left */}
-            <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.12)_0%,transparent_60%)] blur-[60px] pointer-events-none" />
+            <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,145,86,0.06)_0%,transparent_60%)] blur-[80px] pointer-events-none" />
             
             {/* Subtle organic blob - right */}
-            <div className="absolute bottom-[5%] right-[-10%] w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(201,145,86,0.10)_0%,transparent_60%)] blur-[50px] pointer-events-none" />
+            <div className="absolute bottom-[5%] right-[-10%] w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(201,145,86,0.05)_0%,transparent_60%)] blur-[70px] pointer-events-none" />
 
             <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
 

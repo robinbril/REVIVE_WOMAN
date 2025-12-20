@@ -65,34 +65,14 @@ export default function Pricing() {
     const [selectedPlanIndex, setSelectedPlanIndex] = useState(2)
 
     return (
-        <section id="prijzen" className="py-16 sm:py-32 relative overflow-hidden">
-            {/* Atmospheric Background */}
+        <section id="prijzen" className="py-10 sm:py-24 relative overflow-hidden">
+            {/* Subtle atmospheric accents */}
             <div className="absolute inset-0 pointer-events-none">
-                {/* Warm gradient base */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#faf9f7] via-white to-[#fff5f0]" />
+                {/* Subtle blob - top right */}
+                <div className="absolute top-[5%] right-[-8%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,145,86,0.06)_0%,transparent_60%)] blur-[80px]" />
                 
-                {/* Gold ambient glow - top */}
-                <div className="absolute top-[5%] left-[50%] -translate-x-1/2 w-[1000px] h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(201,145,86,0.15)_0%,transparent_60%)] blur-[60px]" />
-                
-                {/* Organic blob - right */}
-                <motion.div 
-                    animate={{ 
-                        scale: [1, 1.1, 1],
-                        opacity: [0.6, 0.8, 0.6]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-[15%] right-[-8%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.15)_0%,transparent_60%)] rounded-full blur-[50px]"
-                />
-                
-                {/* Organic blob - left */}
-                <motion.div 
-                    animate={{ 
-                        scale: [1, 1.15, 1],
-                        opacity: [0.5, 0.7, 0.5]
-                    }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-                    className="absolute bottom-[5%] left-[-8%] w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(201,145,86,0.12)_0%,transparent_60%)] rounded-full blur-[60px]"
-                />
+                {/* Subtle blob - bottom left */}
+                <div className="absolute bottom-[5%] left-[-8%] w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(201,145,86,0.05)_0%,transparent_60%)] blur-[70px]" />
             </div>
 
             <div className="max-w-[640px] lg:max-w-6xl mx-auto px-4 relative z-10">

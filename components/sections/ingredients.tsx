@@ -117,15 +117,12 @@ export default function Ingredients() {
     const totalActive = ingredients.reduce((sum, i) => sum + i.percentage, 0)
 
     return (
-        <section id="formule" className="py-16 sm:py-24 relative overflow-hidden">
-            {/* Warm gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FAF9F7] to-[#F5F3F0]" />
+        <section id="formule" className="py-10 sm:py-20 relative overflow-hidden">
+            {/* Subtle organic blob - top right */}
+            <div className="absolute top-[-5%] right-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.06)_0%,transparent_60%)] blur-[80px] pointer-events-none" />
             
-            {/* Large organic blob - top right */}
-            <div className="absolute top-[-5%] right-[-10%] w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(201,145,86,0.15)_0%,rgba(201,145,86,0.08)_40%,transparent_60%)] blur-[70px] pointer-events-none" />
-            
-            {/* Medium blob - bottom left */}
-            <div className="absolute bottom-[0%] left-[-8%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.10)_0%,transparent_60%)] blur-[60px] pointer-events-none" />
+            {/* Subtle blob - bottom left */}
+            <div className="absolute bottom-[0%] left-[-8%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,145,86,0.05)_0%,transparent_60%)] blur-[70px] pointer-events-none" />
 
             <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
 

@@ -25,7 +25,7 @@ const Footer = dynamic(() => import('@/components/sections/footer'), {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white pb-24 lg:pb-0">
+    <main className="min-h-screen bg-[#FAF9F7] pb-24 lg:pb-0">
       <Header />
       <Hero />
       <WhyCopperPeptides />
