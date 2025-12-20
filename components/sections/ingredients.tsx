@@ -202,7 +202,7 @@ export default function Ingredients() {
                             {/* Explanation */}
                             <div className="bg-[#FAF9F7] rounded-xl p-4 border-l-3 border-l-[#C99156]" style={{ borderLeftWidth: '3px' }}>
                                 <p className="text-[13px] text-[#6B6560] leading-relaxed">
-                                    De meeste serums bevatten slechts <strong className="text-[#2E2A25]">0.1–2%</strong> werkzame stoffen. REVIVE bevat <strong className="text-[#B87333]">12.5%</strong> bewezen actieven — dat is <strong className="text-[#2E2A25]">5x meer</strong> dan de industriestandaard.
+                                    De meeste serums bevatten slechts <strong className="text-[#2E2A25]">0.1–2%</strong> werkzame stoffen. REVIVE bevat <strong className="text-[#B87333]">12.5%</strong> klinisch bewezen actieven — dat is <strong className="text-[#2E2A25]">5x meer</strong> dan de industriestandaard.
                                 </p>
                             </div>
                         </div>
