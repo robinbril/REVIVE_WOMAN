@@ -58,10 +58,10 @@ export default function Reviews() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F7] via-[#F5F3F0] to-[#EBE8E3]" />
             
             {/* Subtle organic blob - top left */}
-            <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,145,86,0.08)_0%,transparent_70%)] blur-[80px] opacity-60 pointer-events-none" />
+            <div className="absolute top-[-5%] left-[-8%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.12)_0%,transparent_60%)] blur-[60px] pointer-events-none" />
             
-            {/* Subtle organic blob - bottom right (navy tint for transition) */}
-            <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(26,35,50,0.04)_0%,transparent_70%)] blur-[100px] opacity-50 pointer-events-none" />
+            {/* Subtle organic blob - bottom right */}
+            <div className="absolute bottom-[-5%] right-[-8%] w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(201,145,86,0.10)_0%,transparent_60%)] blur-[70px] pointer-events-none" />
 
             <div className="max-w-5xl mx-auto px-5 sm:px-8 relative z-10">
 

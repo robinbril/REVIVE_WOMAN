@@ -122,10 +122,10 @@ export default function Ingredients() {
             <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FAF9F7] to-[#F5F3F0]" />
             
             {/* Large organic blob - top right */}
-            <div className="absolute top-[-10%] right-[-15%] w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(201,145,86,0.08)_0%,rgba(201,145,86,0.04)_50%,transparent_70%)] blur-[90px] opacity-60 pointer-events-none" />
+            <div className="absolute top-[-5%] right-[-10%] w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(201,145,86,0.15)_0%,rgba(201,145,86,0.08)_40%,transparent_60%)] blur-[70px] pointer-events-none" />
             
-            {/* Medium blob - bottom left (subtle navy for transition) */}
-            <div className="absolute bottom-[-5%] left-[-10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(26,35,50,0.03)_0%,transparent_70%)] blur-[85px] opacity-40 pointer-events-none" />
+            {/* Medium blob - bottom left */}
+            <div className="absolute bottom-[0%] left-[-8%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.10)_0%,transparent_60%)] blur-[60px] pointer-events-none" />
 
             <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
 

@@ -72,26 +72,26 @@ export default function Pricing() {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#faf9f7] via-white to-[#fff5f0]" />
                 
                 {/* Gold ambient glow - top */}
-                <div className="absolute top-[10%] left-[50%] -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(201,145,86,0.08)_0%,transparent_70%)] blur-[80px]" />
+                <div className="absolute top-[5%] left-[50%] -translate-x-1/2 w-[1000px] h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(201,145,86,0.15)_0%,transparent_60%)] blur-[60px]" />
                 
                 {/* Organic blob - right */}
                 <motion.div 
                     animate={{ 
                         scale: [1, 1.1, 1],
-                        opacity: [0.3, 0.4, 0.3]
+                        opacity: [0.6, 0.8, 0.6]
                     }}
                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-[20%] right-[-5%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(201,145,86,0.1)_0%,transparent_70%)] rounded-full blur-[60px]"
+                    className="absolute top-[15%] right-[-8%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,145,86,0.15)_0%,transparent_60%)] rounded-full blur-[50px]"
                 />
                 
                 {/* Organic blob - left */}
                 <motion.div 
                     animate={{ 
                         scale: [1, 1.15, 1],
-                        opacity: [0.25, 0.35, 0.25]
+                        opacity: [0.5, 0.7, 0.5]
                     }}
                     transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-                    className="absolute bottom-[10%] left-[-5%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,145,86,0.08)_0%,transparent_70%)] rounded-full blur-[80px]"
+                    className="absolute bottom-[5%] left-[-8%] w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(201,145,86,0.12)_0%,transparent_60%)] rounded-full blur-[60px]"
                 />
             </div>
 
